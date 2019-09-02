@@ -16,7 +16,7 @@
 
                     <li class="">
                         <a href="{{route('index')}}">
-                            <span class="pcoded-mtext">Profile & Listings</span>
+                            <span class="pcoded-mtext">Fact Sheet Details</span>
                         </a>
                     </li>
 

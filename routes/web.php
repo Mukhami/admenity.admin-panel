@@ -15,11 +15,11 @@
 //    return view('welcome');
 //});
 
-Route::get('/view_profile', 'ProfileController@index')->name('index');//profile and listings view
+Route::get('/fact_sheet_details', 'ProfileController@index')->name('index');//profile and listings view
 
 Route::get('/', 'ProfileController@stats_index')->name('stats');//admin home
 
-
+//listed securities routes
 Route::get('view_securities', 'ListedSecuritiesController@index')->name('listings.index');
 Route::get('securities', 'ListedSecuritiesController@create')->name('security.create');
 Route::post('securities', 'ListedSecuritiesController@store')->name('security.create');
@@ -27,8 +27,22 @@ Route::get('edit_listing/{id}', 'ListedSecuritiesController@edit')->name('listin
 Route::post('edit_listing', 'ListedSecuritiesController@update')->name('listing.update');
 Route::get('delete_listing/{id}', 'ListedSecuritiesController@destroy')->name('listing.delete');
 
-
+//Profile Routes
 Route::get('create', 'ProfileController@create')->name('profile.create');
 Route::post('create', 'ProfileController@store')->name('profile.create');
 Route::get('edit_profile/{id}', 'ProfileController@edit')->name('profile.edit');
 Route::post('edit_profile', 'ProfileController@update')->name('profile.update');
+
+//Market Flow Routes
+Route::get('market_flow', 'ListedSecuritiesController@create_market_flow')->name('market_flow.create');
+Route::post('market_flow', 'ListedSecuritiesController@store_market_flow')->name('market_flow.create');
+Route::get('edit_market_flow/{id}', 'ListedSecuritiesController@edit_market_flow')->name('market_flow.edit');
+Route::post('edit_market_flow', 'ListedSecuritiesController@update_market_flow')->name('market_flow.update');
+Route::get('delete_market_flow/{id}', 'ListedSecuritiesController@delete_market_flow')->name('market_flow.delete');
+
+//Industry Sector Routes
+Route::get('industry_sector', 'ListedSecuritiesController@create_industry_sector')->name('sector.create');
+Route::post('industry_sector', 'ListedSecuritiesController@store_industry_sector')->name('sector.create');
+Route::get('edit_industry_sector/{id}', 'ListedSecuritiesController@edit_industry_sector')->name('sector.edit');
+Route::post('edit_industry_sector', 'ListedSecuritiesController@update_industry_sector')->name('sector.update');
+Route::get('delete_sector/{id}', 'ListedSecuritiesController@delete_industry_sector')->name('sector.delete');

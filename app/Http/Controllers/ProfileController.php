@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\ListedSecurity;
+use App\MarketFlow;
+use App\PerformanceSector;
 use App\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -21,7 +23,9 @@ class ProfileController extends Controller
         $mkt_usd_sum = ListedSecurity::sum('mkt_cpt_usd');
         $listings =ListedSecurity::orderBy('created_at', 'desc')->get();
         $profile = DB::table('profiles')->first();
-        return view('admin_panel', compact('profile', 'listings', 'number_listed_sum', 'mkt_ngn_sum', 'mkt_usd_sum'));
+        $mkt_flows =MarketFlow::orderBy('created_at', 'desc')->get();
+        $sectors =PerformanceSector::orderBy('created_at', 'desc')->get();
+        return view('admin_panel', compact('profile','sectors', 'mkt_flows', 'listings', 'number_listed_sum', 'mkt_ngn_sum', 'mkt_usd_sum'));
     }
 
     public function stats_index()

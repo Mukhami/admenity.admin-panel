@@ -3,41 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\ListedSecurity;
+use App\MarketFlow;
+use App\PerformanceSector;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class ListedSecuritiesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $number_listed_sum = ListedSecurity::sum('number_listed');
         $mkt_ngn_sum = ListedSecurity::sum('mkt_cpt_ngn');
         $mkt_usd_sum = ListedSecurity::sum('mkt_cpt_usd');
         $listings =ListedSecurity::orderBy('created_at', 'desc')->get();
-        return view('Securities.securities_view', compact( 'listings', 'number_listed_sum', 'mkt_ngn_sum', 'mkt_usd_sum'));
+        return view('Securities.securities_view', compact( 'listings', 'number_listed_sum', 'mkt_ngn_sum', 'mkt_usd_sum', 'mkt_flows'));
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('Securities.securities-form');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -59,39 +46,16 @@ class ListedSecuritiesController extends Controller
         ]);
 //        dd($securities);
         $securities->save();
-        return redirect()->route('index')->with('info', 'Security Listing Added.');
+        return redirect()->route('index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $listing = ListedSecurity::where('id', '=', $id)->firstOrFail();
         return view('Securities.securities-form_update', ['listing'=>$listing, 'listingId'=>$id]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request)
     {
         $this->validate($request, [
@@ -111,15 +75,145 @@ class ListedSecuritiesController extends Controller
         return redirect()->route('index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         ListedSecurity::where('id' , $id)->delete();
+        return redirect()->route('index');
+    }
+
+/***************  MARKET FLOW METHODS *****************/
+
+    public function create_market_flow(){
+        return view('Market-Flow.market-flow-form');
+    }
+
+    public function store_market_flow(Request $request){
+        $this->validate($request, [
+            'period' => 'required',
+            'domestic' => 'required',
+            'foreign' => 'required',
+            'total_ft_naira' => 'required',
+            'total_ft_dollar' => 'required',
+        ]);
+
+        $period = $request->input('period');
+        $domestic = $request->input('domestic');
+        $foreign = $request->input('foreign');
+        $total_naira = $request->input('total_ft_naira');
+        $total_dollar = $request->input('total_ft_dollar');
+        $mkt_flow = new MarketFlow([
+            'period' => $period,
+            'domestic' => $domestic,
+            'foreign' => $foreign,
+            'total_ft_naira' => $total_naira,
+            'total_ft_dollar' => $total_dollar,
+        ]);
+//        dd($mkt_flow);
+        $mkt_flow->save();
+        return redirect()->route('index');
+    }
+
+    public function edit_market_flow($id){
+        $mkt_flow = MarketFlow::where('id', '=', $id)->firstOrFail();
+        $mktFlowId = $id;
+        return view('Market-Flow.market-flow-update-form', compact('mkt_flow', 'mktFlowId'));
+    }
+
+    public function update_market_flow(Request $request)
+    {
+        $this->validate($request, [
+            'period' => 'required',
+            'domestic' => 'required',
+            'foreign' => 'required',
+            'total_ft_naira' => 'required',
+            'total_ft_dollar' => 'required',
+        ]);
+
+        $mkt_flow = MarketFlow::find($request->input('id'));
+        $mkt_flow->period = $request->input('period');
+        $mkt_flow->domestic = $request->input('domestic');
+        $mkt_flow->foreign = $request->input('foreign');
+        $mkt_flow->total_ft_naira = $request->input('total_ft_naira');
+        $mkt_flow->total_ft_dollar = $request->input('total_ft_dollar');
+
+        $mkt_flow->save();
+
+        return redirect()->route('index');
+    }
+
+    public function delete_market_flow($id)
+    {
+        MarketFlow::where('id' , $id)->delete();
+        return redirect()->route('index');
+    }
+
+    /*********PERFORMANCE BY SECTOR********/
+
+    public function create_industry_sector(){
+        return view('Performance-Sector.performance-sector-form');
+    }
+
+    public function store_industry_sector(Request $request){
+        $this->validate($request, [
+            'industry_sector' => 'required',
+            'change' => 'required',
+            'transaction_naira' => 'required',
+            'naira_units' => 'required',
+            'transaction_dollar' => 'required',
+            'usd_units' => 'required',
+        ]);
+
+        $industry_sector = $request->input('industry_sector');
+        $change= $request->input('change');
+        $total_naira = $request->input('transaction_naira');
+        $naira_units = Input::get('NAIRA');
+        $total_dollar = $request->input('transaction_dollar');
+        $usd_units = Input::get('USD');
+        $sector = new PerformanceSector([
+            'industry_sector' => $industry_sector,
+            'change' => $change,
+            'transaction_naira' => $total_naira,
+            'naira_units' => $naira_units,
+            'transaction_dollar' => $total_dollar,
+            'usd_units' => $usd_units,
+
+        ]);
+//        dd($sector);
+        $sector->save();
+        return redirect()->route('index');
+    }
+
+    public function edit_industry_sector($id){
+        $sectorId = $id;
+        $sector = PerformanceSector::where('id', '=', $id)->firstOrFail();
+        return view('Performance-Sector.update-form', compact('sector', 'sectorId'));
+    }
+
+    public function update_industry_sector(Request $request){
+        $this->validate($request, [
+            'industry_sector' => 'required',
+            'change' => 'required',
+            'transaction_naira' => 'required',
+            'transaction_dollar' => 'required',
+
+        ]);
+
+        $sector = PerformanceSector::find($request->input('id'));
+//        dd($sector);
+        $sector->industry_sector = $request->input('industry_sector');
+        $sector->change = $request->input('change');
+        $sector->transaction_naira = $request->input('transaction_naira');
+        $sector->naira_units = Input::get('NAIRA');
+        $sector->transaction_dollar = $request->input('transaction_dollar');
+        $sector->usd_units = Input::get('USD');
+
+        $sector->save();
+
+        return redirect()->route('index');
+    }
+    public function delete_industry_sector($id)
+    {
+        PerformanceSector::where('id' , $id)->delete();
         return redirect()->route('index');
     }
 }

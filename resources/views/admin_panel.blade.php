@@ -172,6 +172,119 @@
                                 </div>
                             </div>
 
+
+                            <div class="col-xl-12 col-md-12">
+                                <div class="card table-card">
+                                    <div class="card-header">
+                                        <h5>MARKET FLOW</h5>
+                                        <div class="card-header-right">
+                                            <ul class="list-unstyled card-option">
+                                                <li><a href="{{ route('market_flow.create') }}">Add New</a></li>
+                                                <li><i class="feather icon-maximize full-card"></i></li>
+                                                <li><i class="feather icon-minus minimize-card"></i></li>
+                                                <li><i class="feather icon-trash-2 close-card"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="card-block">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover  table-borderless">
+                                                <thead>
+                                                <tr>
+                                                    <th> Period</th>
+                                                    <th>Domestic(%)</th>
+                                                    <th>Foreign(%)</th>
+                                                    <th>Total Foreign Transactions
+                                                        <p class="text-muted m-b-0">Naira, USD</p>
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach($mkt_flows as $mkt_flow)
+                                                    <tr>
+                                                        <td>
+                                                            <div class="d-inline-block align-middle">
+                                                                <h6>{{$mkt_flow->period}}</h6>
+                                                            </div>
+                                                        </td>
+                                                        <td>{{$mkt_flow->domestic}}%</td>
+                                                        <td>{{$mkt_flow->foreign}}%</td>
+                                                        <td>N{{number_format($mkt_flow->total_ft_naira,2)}}bn,  ${{number_format($mkt_flow->total_ft_dollar,2)}}bn</td>
+
+                                                        <td>
+                                                            <div class="dropdown-primary dropdown">
+                                                                <div class="dropdown-toggle" data-toggle="dropdown">
+                                                                    <i class="feather icon-anchor"></i>
+                                                                </div>
+                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                                    <a class="dropdown-item" href="{{route('market_flow.edit', ['id'=>$mkt_flow->id])}}">Edit</a>
+                                                                    <a class="dropdown-item" href="{{route('market_flow.delete', ['id'=>$mkt_flow->id])}}">Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-xl-12 col-md-12">
+                                <div class="card table-card">
+                                    <div class="card-header">
+                                        <h5>PERFORMANCE BY INDUSTRY SECTOR</h5>
+                                        <div class="card-header-right">
+                                            <ul class="list-unstyled card-option">
+                                                <li><a href="{{ route('sector.create') }}">Add New</a></li>
+                                                <li><i class="feather icon-maximize full-card"></i></li>
+                                                <li><i class="feather icon-minus minimize-card"></i></li>
+                                                <li><i class="feather icon-trash-2 close-card"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="card-block">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                <tr>
+                                                    <th> By Industry Sector***</th>
+                                                    <th>Q1 2019 <p class="text-muted m-b-0">Mar-2019</p></th>
+                                                    <th>52-Week Change <p class="text-muted m-b-0">Apr-2018 to Mar-2019</p></th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach($sectors as $sector)
+                                                    <tr>
+                                                        <td>
+                                                            <div class="d-inline-block align-middle">
+                                                                <h6>{{$sector->industry_sector}}</h6>
+                                                            </div>
+                                                        </td>
+                                                        <td>N{{number_format($sector->transaction_naira,2)}}{{$sector->naira_units}},  ${{number_format($sector->transaction_dollar,2)}}{{$sector->usd_units}}</td>
+                                                        <td>{{$sector->change}}%</td>
+                                                        <td>
+                                                            <div class="dropdown-primary dropdown">
+                                                                <div class="dropdown-toggle" data-toggle="dropdown">
+                                                                    <i class="feather icon-anchor"></i>
+                                                                </div>
+                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                                    <a class="dropdown-item" href="{{route('sector.edit', ['id'=>$sector->id])}}">Edit</a>
+                                                                    <a class="dropdown-item" href="{{route('market_flow.delete', ['id'=>$mkt_flow->id])}}">Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
