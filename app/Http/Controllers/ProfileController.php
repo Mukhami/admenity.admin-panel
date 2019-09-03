@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ListedSecurity;
 use App\MarketFlow;
+use App\PerformanceCapitalization;
 use App\PerformanceSector;
 use App\Profile;
 use Illuminate\Http\Request;
@@ -25,7 +26,8 @@ class ProfileController extends Controller
         $profile = DB::table('profiles')->first();
         $mkt_flows =MarketFlow::orderBy('created_at', 'desc')->get();
         $sectors =PerformanceSector::orderBy('created_at', 'desc')->get();
-        return view('admin_panel', compact('profile','sectors', 'mkt_flows', 'listings', 'number_listed_sum', 'mkt_ngn_sum', 'mkt_usd_sum'));
+        $capitalizations =PerformanceCapitalization::orderBy('created_at', 'desc')->get();
+        return view('admin_panel', compact('profile', 'capitalizations','sectors', 'mkt_flows', 'listings', 'number_listed_sum', 'mkt_ngn_sum', 'mkt_usd_sum'));
     }
 
     public function stats_index()

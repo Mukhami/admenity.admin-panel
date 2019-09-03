@@ -1,5 +1,5 @@
 @extends('Layouts.master')
-@section('title', 'Update Sector')
+@section('title', 'Update Capitalization Record')
 @section('content')
     <style>
         /*.positioning{*/
@@ -14,7 +14,7 @@
                     <div class="col-xl-10 col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5>Edit- {{$sector->industry_sector}}</h5>
+                                <h5>Edit- {{$capitalization->capitalization}}</h5>
                                 <div class="card-header-right">
                                     <ul class="list-unstyled card-option">
                                         <li><i class="feather icon-maximize full-card"></i></li>
@@ -24,22 +24,22 @@
                                 </div>
                             </div>
                             <div class="card-block">
-                                <form action="{{route('sector.update')}}" method="post">
+                                <form action="{{route('capitalization.update')}}" method="post">
                                     {{ csrf_field() }}
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="industry_sector">Industry Sector</label>
-                                            <input type="text" class="form-control" id="industry_sector" name="industry_sector" value="{{$sector->industry_sector}}" required>
+                                            <label for="capitalization">Capitalization</label>
+                                            <input type="text" class="form-control" id="capitalization" name="capitalization" value="{{$capitalization->capitalization}}" required>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="change">(%)Change</label>
-                                            <input type="number" step="0.01" class="form-control" id="change" name="change" value="{{$sector->change}}" required>
+                                            <input type="number" step="0.01" class="form-control" id="change" name="change" value="{{$capitalization->change}}" required>
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="transaction_naira">Total Transaction(N)</label>
-                                            <input type="number" min="0" step="0.01" class="form-control" id="transaction_naira" name="transaction_naira" value="{{$sector->transaction_naira}}" required>
+                                            <input type="number" min="0" step="0.01" class="form-control" id="transaction_naira" name="transaction_naira" value="{{$capitalization->transaction_naira}}" required>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <div class="container-fluid">
@@ -55,7 +55,7 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="transaction_dollar">Total Transaction(USD)</label>
-                                            <input type="number" min="0" step="0.01" class="form-control" id="transaction_dollar" name="transaction_dollar" value="{{$sector->transaction_naira}}"  required>
+                                            <input type="number" min="0" step="0.01" class="form-control" id="transaction_dollar" name="transaction_dollar" value="{{$capitalization->transaction_naira}}"  required>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <div class="container-fluid">
@@ -68,8 +68,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="hidden" name="id" value="{{ $sectorId }}">
-                                    <button type="submit" class="btn btn-round btn-outline-primary">Add New</button>
+                                    <input type="hidden" name="id" value="{{ $captId }}">
+                                    <button type="submit" class="btn btn-round btn-outline-primary">Update</button>
                                 </form>
                             </div>
                         </div>

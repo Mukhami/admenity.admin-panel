@@ -46,3 +46,11 @@ Route::post('industry_sector', 'ListedSecuritiesController@store_industry_sector
 Route::get('edit_industry_sector/{id}', 'ListedSecuritiesController@edit_industry_sector')->name('sector.edit');
 Route::post('edit_industry_sector', 'ListedSecuritiesController@update_industry_sector')->name('sector.update');
 Route::get('delete_sector/{id}', 'ListedSecuritiesController@delete_industry_sector')->name('sector.delete');
+
+
+//Performance Capitalization Routes
+Route::get('performance_by_capitalization', 'ListedSecuritiesController@create_capitalization')->name('capitalization.create');
+Route::post('performance_by_capitalization', 'ListedSecuritiesController@store_capitalization')->name('capitalization.create');
+Route::get('edit_performance_by_capitalization/{id}', 'ListedSecuritiesController@edit_capitalization')->name('capitalization.edit');
+Route::post('edit_performance_by_capitalization', 'ListedSecuritiesController@update_capitalization')->name('capitalization.update');
+Route::get('delete_capitalization_group/{id}', 'ListedSecuritiesController@delete_capitalization')->name('capitalization.delete');

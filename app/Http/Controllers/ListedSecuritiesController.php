@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ListedSecurity;
 use App\MarketFlow;
+use App\PerformanceCapitalization;
 use App\PerformanceSector;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -150,7 +151,7 @@ class ListedSecuritiesController extends Controller
     /*********PERFORMANCE BY SECTOR********/
 
     public function create_industry_sector(){
-        return view('Performance-Sector.performance-sector-form');
+        return view('Performance.performance-sector-form');
     }
 
     public function store_industry_sector(Request $request){
@@ -186,7 +187,7 @@ class ListedSecuritiesController extends Controller
     public function edit_industry_sector($id){
         $sectorId = $id;
         $sector = PerformanceSector::where('id', '=', $id)->firstOrFail();
-        return view('Performance-Sector.update-form', compact('sector', 'sectorId'));
+        return view('Performance.performance-sector-update-form', compact('sector', 'sectorId'));
     }
 
     public function update_industry_sector(Request $request){
@@ -216,4 +217,72 @@ class ListedSecuritiesController extends Controller
         PerformanceSector::where('id' , $id)->delete();
         return redirect()->route('index');
     }
+    /***********PERFORMANCE BY CAPITALIZATION ************/
+
+    public function create_capitalization(){
+        return view('Performance.by-capitalization-form');
+    }
+
+    public function store_capitalization(Request $request){
+        $this->validate($request, [
+            'capitalization' => 'required',
+            'change' => 'required',
+            'transaction_naira' => 'required',
+//            'naira_units' => 'required',
+            'transaction_dollar' => 'required',
+//            'usd_units' => 'required',
+        ]);
+
+        $capitalization = $request->input('capitalization');
+        $change= $request->input('change');
+        $total_naira = $request->input('transaction_naira');
+        $naira_units = Input::get('NAIRA');
+        $total_dollar = $request->input('transaction_dollar');
+        $usd_units = Input::get('USD');
+        $new_capitalization = new PerformanceCapitalization([
+            'capitalization' => $capitalization,
+            'change' => $change,
+            'transaction_naira' => $total_naira,
+            'naira_units' => $naira_units,
+            'transaction_dollar' => $total_dollar,
+            'usd_units' => $usd_units,
+
+        ]);
+        $new_capitalization->save();
+        return redirect()->route('index');
+    }
+
+    public function edit_capitalization($id){
+        $captId = $id;
+        $capitalization = PerformanceCapitalization::where('id', '=', $id)->firstOrFail();
+        return view('Performance.by-capitalization-update-form', compact('capitalization', 'captId'));
+    }
+
+    public function update_capitalization(Request $request){
+        $this->validate($request, [
+            'capitalization' => 'required',
+            'change' => 'required',
+            'transaction_naira' => 'required',
+            'transaction_dollar' => 'required',
+
+        ]);
+
+        $capitalization = PerformanceCapitalization::find($request->input('id'));
+        $capitalization->capitalization = $request->input('capitalization');
+        $capitalization->change = $request->input('change');
+        $capitalization->transaction_naira = $request->input('transaction_naira');
+        $capitalization->naira_units = Input::get('NAIRA');
+        $capitalization->transaction_dollar = $request->input('transaction_dollar');
+        $capitalization->usd_units = Input::get('USD');
+
+        $capitalization->save();
+
+        return redirect()->route('index');
+    }
+    public function delete_capitalization($id)
+    {
+        PerformanceCapitalization::where('id' , $id)->delete();
+        return redirect()->route('index');
+    }
+
 }

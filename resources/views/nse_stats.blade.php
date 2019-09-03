@@ -7,81 +7,106 @@
                 <div class="page-wrapper">
                     <div class="page-body">
                         <div class="row">
-
-
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-c-yellow update-card">
+                                <div class="card">
                                     <div class="card-block">
-                                        <div class="row align-items-end">
+                                        <div class="row align-items-center">
                                             <div class="col-8">
-                                                <h4 class="text-white">30,200</h4>
-                                                <h6 class="text-white m-b-0">Monitored Stocks</h6>
+                                                <h4 class="text-c-yellow f-w-600">30,200</h4>
+                                                <h6 class="text-muted m-b-0">Monitored Stocks</h6>
                                             </div>
                                             <div class="col-4 text-right">
-                                                <canvas id="update-chart-1" height="50"></canvas>
+                                                <i class="feather icon-bar-chart f-28"></i>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card-footer">
-                                        <p class="text-white m-b-0"><i class="feather icon-clock text-white f-14 m-r-10"></i>update : 2:15 am</p>
+                                    <div class="card-footer bg-c-yellow">
+                                        <div class="row align-items-center">
+                                            <div class="col-9">
+                                                <p class="text-white m-b-0">% change</p>
+                                            </div>
+                                            <div class="col-3 text-right">
+                                                <i class="feather icon-trending-down text-white f-16"></i>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-c-green update-card">
+                                <div class="card">
                                     <div class="card-block">
-                                        <div class="row align-items-end">
+                                        <div class="row align-items-center">
                                             <div class="col-8">
-                                                <h4 class="text-white">290+</h4>
-                                                <h6 class="text-white m-b-0">User Details</h6>
+                                                <h4 class="text-c-green f-w-600">290+</h4>
+                                                <h6 class="text-muted m-b-0">Sent SMS</h6>
                                             </div>
                                             <div class="col-4 text-right">
-                                                <canvas id="update-chart-2" height="50"></canvas>
+                                                <i class="feather icon-mail f-28"></i>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card-footer">
-                                        <p class="text-white m-b-0"><i class="feather icon-clock text-white f-14 m-r-10"></i>update : 2:15 am</p>
+                                    <div class="card-footer bg-c-green">
+                                        <div class="row align-items-center">
+                                            <div class="col-9">
+                                                <p class="text-white m-b-0">% change</p>
+                                            </div>
+                                            <div class="col-3 text-right">
+                                                <i class="feather icon-trending-up text-white f-16"></i>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-c-pink update-card">
+                                <div class="card">
                                     <div class="card-block">
-                                        <div class="row align-items-end">
+                                        <div class="row align-items-center">
                                             <div class="col-8">
-                                                <h4 class="text-white">145</h4>
-                                                <h6 class="text-white m-b-0">Sent SMS</h6>
+                                                <h4 class="text-c-pink f-w-600">145</h4>
+                                                <h6 class="text-muted m-b-0">User Details</h6>
                                             </div>
                                             <div class="col-4 text-right">
-                                                <canvas id="update-chart-3" height="50"></canvas>
+                                                <i class="feather icon-user f-28"></i>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card-footer">
-                                        <p class="text-white m-b-0"><i class="feather icon-clock text-white f-14 m-r-10"></i>update : 2:15 am</p>
+                                    <div class="card-footer bg-c-pink">
+                                        <div class="row align-items-center">
+                                            <div class="col-9">
+                                                <p class="text-white m-b-0">% change</p>
+                                            </div>
+                                            <div class="col-3 text-right">
+                                                <i class="feather icon-trending-up text-white f-16"></i>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-c-lite-green update-card">
+                                <div class="card">
                                     <div class="card-block">
-                                        <div class="row align-items-end">
+                                        <div class="row align-items-center">
                                             <div class="col-8">
-                                                <h4 class="text-white">500</h4>
-                                                <h6 class="text-white m-b-0">Platforms- iOS & Android</h6>
+                                                <h4 class="text-c-blue f-w-600">Platform</h4>
+                                                <h6 class="text-muted m-b-0">Android & iOS</h6>
                                             </div>
                                             <div class="col-4 text-right">
-                                                <canvas id="update-chart-4" height="50"></canvas>
+                                                <i class="feather icon-download f-28"></i>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card-footer">
-                                        <p class="text-white m-b-0"><i class="feather icon-clock text-white f-14 m-r-10"></i>update : 2:15 am</p>
+                                    <div class="card-footer bg-c-blue">
+                                        <div class="row align-items-center">
+                                            <div class="col-9">
+                                                <p class="text-white m-b-0">% change</p>
+                                            </div>
+                                            <div class="col-3 text-right">
+                                                <i class="feather icon-trending-down text-white f-16"></i>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
 
                         </div>
                     </div>

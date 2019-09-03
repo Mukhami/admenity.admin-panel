@@ -264,7 +264,11 @@
                                                             </div>
                                                         </td>
                                                         <td>N{{number_format($sector->transaction_naira,2)}}{{$sector->naira_units}},  ${{number_format($sector->transaction_dollar,2)}}{{$sector->usd_units}}</td>
-                                                        <td>{{$sector->change}}%</td>
+                                                        @if($sector->change <= -0)
+                                                        <td><font color="red">{{$sector->change}}%</font></td>
+                                                        @else
+                                                        <td><font color="green">{{$sector->change}}%</font></td>
+                                                        @endif
                                                         <td>
                                                             <div class="dropdown-primary dropdown">
                                                                 <div class="dropdown-toggle" data-toggle="dropdown">
@@ -272,7 +276,7 @@
                                                                 </div>
                                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                                     <a class="dropdown-item" href="{{route('sector.edit', ['id'=>$sector->id])}}">Edit</a>
-                                                                    <a class="dropdown-item" href="{{route('market_flow.delete', ['id'=>$mkt_flow->id])}}">Delete</a>
+                                                                    <a class="dropdown-item" href="{{route('sector.delete', ['id'=>$sector->id])}}">Delete</a>
                                                                 </div>
                                                             </div>
                                                         </td>
@@ -284,6 +288,65 @@
                                     </div>
                                 </div>
                             </div>
+
+
+                            <div class="col-xl-12 col-md-12">
+                                <div class="card table-card">
+                                    <div class="card-header">
+                                        <h5>PERFORMANCE BY CAPITALIZATION</h5>
+                                        <div class="card-header-right">
+                                            <ul class="list-unstyled card-option">
+                                                <li><a href="{{ route('capitalization.create') }}">Add New</a></li>
+                                                <li><i class="feather icon-maximize full-card"></i></li>
+                                                <li><i class="feather icon-minus minimize-card"></i></li>
+                                                <li><i class="feather icon-trash-2 close-card"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="card-block">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                <tr>
+                                                    <th> By Capitalization***</th>
+                                                    <th>Q1 2019 <p class="text-muted m-b-0">Mar-2019</p></th>
+                                                    <th>52-Week Change <p class="text-muted m-b-0">Apr-2018 to Mar-2019</p></th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach($capitalizations as $capt)
+                                                    <tr>
+                                                        <td>
+                                                            <div class="d-inline-block align-middle">
+                                                                <h6>{{$capt->capitalization}}</h6>
+                                                            </div>
+                                                        </td>
+                                                        <td>N{{number_format($capt->transaction_naira,2)}}{{$capt->naira_units}},  ${{number_format($capt->transaction_dollar,2)}}{{$capt->usd_units}}</td>
+                                                        @if($capt->change <= -0)
+                                                            <td><font color="red">{{$capt->change}}%</font></td>
+                                                        @else
+                                                            <td><font color="green">{{$capt->change}}%</font></td>
+                                                        @endif
+                                                        <td>
+                                                            <div class="dropdown-primary dropdown">
+                                                                <div class="dropdown-toggle" data-toggle="dropdown">
+                                                                    <i class="feather icon-anchor"></i>
+                                                                </div>
+                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                                    <a class="dropdown-item" href="{{route('capitalization.edit', ['id'=>$capt->id])}}">Edit</a>
+                                                                    <a class="dropdown-item" href="{{route('capitalization.delete', ['id'=>$capt->id])}}">Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
 
                         </div>
                     </div>
