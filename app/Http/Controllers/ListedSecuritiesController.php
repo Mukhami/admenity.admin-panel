@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Input;
 
 class ListedSecuritiesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $number_listed_sum = ListedSecurity::sum('number_listed');
