@@ -58,3 +58,6 @@ Route::post('performance_by_capitalization', 'ListedSecuritiesController@store_c
 Route::get('edit_performance_by_capitalization/{id}', 'ListedSecuritiesController@edit_capitalization')->name('capitalization.edit');
 Route::post('edit_performance_by_capitalization', 'ListedSecuritiesController@update_capitalization')->name('capitalization.update');
 Route::get('delete_capitalization_group/{id}', 'ListedSecuritiesController@delete_capitalization')->name('capitalization.delete');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
