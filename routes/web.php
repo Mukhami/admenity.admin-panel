@@ -17,7 +17,11 @@
 
 Route::get('/fact_sheet_details', 'ProfileController@index')->name('index');//profile and listings view
 
-Route::get('/', 'ProfileController@stats_index')->name('stats');//admin home
+Route::get('/', 'StatsController@stats_index')->name('stats');//admin home
+Route::get('/refresh_access_token', 'StatsController@refreshAccessToken')->name('refresh');
+Route::get('/users_list', 'StatsController@getUsersList')->name('user.lists');
+Route::get('/sent_sms_summary', 'StatsController@getSentSMSSummary')->name('sms.summary');
+Route::get('/sent_sms_logs', 'StatsController@getSentSMSLogs')->name('sms.logs');
 
 //listed securities routes
 Route::get('view_securities', 'ListedSecuritiesController@index')->name('listings.index');

@@ -30,10 +30,7 @@ class ProfileController extends Controller
         return view('admin_panel', compact('profile', 'capitalizations','sectors', 'mkt_flows', 'listings', 'number_listed_sum', 'mkt_ngn_sum', 'mkt_usd_sum'));
     }
 
-    public function stats_index()
-    {
-        return view('nse_stats');
-    }
+
 
     /**
      * Show the form for creating a new resource.
