@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2d955bb2-ca31-4904-9b4a-dac2d3defd87" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ListedSecuritiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ListedSecuritiesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StatsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StatsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Layouts/nav-bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/nav-bar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,8 +30,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StatsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="151" column="113" selection-start-line="151" selection-start-column="113" selection-end-line="151" selection-end-column="113" />
+            <state relative-caret-position="272">
+              <caret line="101" column="13" selection-start-line="101" selection-start-column="13" selection-end-line="101" selection-end-column="13" />
               <folding>
                 <element signature="e#40#68#0#PHP" expanded="true" />
               </folding>
@@ -373,6 +366,13 @@
               <item name="laravel-admin" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Layouts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="laravel-admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laravel-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="NSE-Data" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -464,12 +464,12 @@
       <workItem from="1567441843581" duration="9234000" />
       <workItem from="1567493164814" duration="6363000" />
       <workItem from="1567578687202" duration="37515000" />
-      <workItem from="1567864495731" duration="10320000" />
+      <workItem from="1567864495731" duration="10970000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146784000" />
+    <option name="totallyTimeSpent" value="147434000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -482,11 +482,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="2" weight="0.290469" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.23903178" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.32890365" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
@@ -892,8 +891,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StatsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="151" column="113" selection-start-line="151" selection-start-column="113" selection-end-line="151" selection-end-column="113" />
+        <state relative-caret-position="272">
+          <caret line="101" column="13" selection-start-line="101" selection-start-column="13" selection-end-line="101" selection-end-column="13" />
           <folding>
             <element signature="e#40#68#0#PHP" expanded="true" />
           </folding>

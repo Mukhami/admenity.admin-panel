@@ -187,7 +187,7 @@
                                                     <tr>
                                                         <td>{{$value['mobile']}}</td>
                                                         <td>{{$value['created_date']}}</td>
-                                                        <td>{{str_limit($value['message'], 50)}}</td>
+                                                        <td>{{str_limit($value['message'], 55)}}</td>
 {{--                                                        <td>{{$value['status']}}</td>--}}
                                                     </tr>
                                                     @endforeach
