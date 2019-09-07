@@ -159,9 +159,8 @@ class ListedSecuritiesController extends Controller
             'industry_sector' => 'required',
             'change' => 'required',
             'transaction_naira' => 'required',
-            'naira_units' => 'required',
             'transaction_dollar' => 'required',
-            'usd_units' => 'required',
+
         ]);
 
         $industry_sector = $request->input('industry_sector');
@@ -179,7 +178,7 @@ class ListedSecuritiesController extends Controller
             'usd_units' => $usd_units,
 
         ]);
-//        dd($sector);
+        dd($sector);
         $sector->save();
         return redirect()->route('index');
     }
