@@ -1,4 +1,4 @@
-@extends('layouts.master_2')
+@extends('Layouts.master_2')
 @section('title', 'Log In to NSE Admin')
 
 @section('content')

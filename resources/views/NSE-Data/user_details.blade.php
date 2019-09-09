@@ -129,7 +129,7 @@
                                         <th>E-mail</th>
                                         <th>Mobile Number</th>
                                         <th>Country</th>
-                                        <th>Registration Date</th>
+                                        <th>Registration Date & Time</th>
                                         <th>Status</th>
                                     </tr>
                                     </thead>
@@ -140,7 +140,7 @@
                                             <td>{{$value['email']}}</td>
                                             <td>{{$value['mobile']}}</td>
                                             <td>{{$value['country']}}</td>
-                                            <td>{{$value['createdAt']}}</td>
+                                            <td>{{date('d-m-Y , h:i:sa',strtotime($value['createdAt']))}}</td>
                                             <td>{{$value['status']}}</td>
                                         </tr>
                                     @endforeach

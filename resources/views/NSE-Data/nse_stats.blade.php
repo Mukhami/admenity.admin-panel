@@ -1,5 +1,5 @@
 @extends('Layouts.master')
-@section('title', 'Admin-Panel')
+@section('title', 'NSE Stats')
 @section('content')
             <div class="main-body">
                 <div class="page-wrapper">
@@ -130,7 +130,7 @@
                                                     <th>E-mail</th>
                                                     <th>Mobile Number</th>
                                                     <th>Country</th>
-                                                    <th>Registration Date</th>
+                                                    <th>Registration Date & Time</th>
                                                     <th>Status</th>
                                                 </tr>
                                                 </thead>
@@ -141,7 +141,7 @@
                                                         <td>{{$value['email']}}</td>
                                                         <td>{{$value['mobile']}}</td>
                                                         <td>{{$value['country']}}</td>
-                                                        <td>{{$value['createdAt']}}</td>
+                                                        <td>{{date('d-m-Y , h:i:sa',strtotime($value['createdAt']))}}</td>
                                                         <td>{{$value['status']}}</td>
                                                     </tr>
                                                 @endforeach
@@ -176,7 +176,7 @@
                                                 <thead>
                                                 <tr>
                                                     <th>Phone Number</th>
-                                                    <th>Date Sent</th>
+                                                    <th>Date & Time Sent</th>
                                                     <th>Message</th>
 {{--                                                    <th>Status</th>--}}
                                                 </tr>
@@ -186,7 +186,7 @@
                                                 @foreach($last_ten as $key=>$value)
                                                     <tr>
                                                         <td>{{$value['mobile']}}</td>
-                                                        <td>{{$value['created_date']}}</td>
+                                                        <td>{{date('d-m-Y , h:i:sa',strtotime($value['created_date']))}}</td>
                                                         <td>{{str_limit($value['message'], 55)}}</td>
 {{--                                                        <td>{{$value['status']}}</td>--}}
                                                     </tr>
@@ -207,10 +207,10 @@
                                         <p class="text-muted">Records for the last 5 days.</p>
 
                                         @foreach($last_five as $key=>$value)
-                                            <p class="text-muted">{{$value['date']}}<span class="f-right">Sent SMS: {{$value['total']}}</span></p>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-simple-c-pink" style="width: 80%"></div>
-                                            </div>
+                                            <p class="text-muted">{{date('d-m-Y',strtotime($value['date']))}}<span class="f-right">Sent SMS: {{$value['total']}}</span></p>
+{{--                                            <div class="progress">--}}
+{{--                                                <div class="progress-bar bg-simple-c-pink" style="width: 80%"></div>--}}
+{{--                                            </div>--}}
                                             <br>
                                         @endforeach
 

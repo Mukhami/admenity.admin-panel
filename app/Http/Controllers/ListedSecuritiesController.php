@@ -21,7 +21,7 @@ class ListedSecuritiesController extends Controller
         $mkt_ngn_sum = ListedSecurity::sum('mkt_cpt_ngn');
         $mkt_usd_sum = ListedSecurity::sum('mkt_cpt_usd');
         $listings =ListedSecurity::orderBy('created_at', 'desc')->get();
-        return view('Securities.securities_view', compact( 'listings', 'number_listed_sum', 'mkt_ngn_sum', 'mkt_usd_sum', 'mkt_flows'));
+        return view('Securities.securities_view', compact( 'listings', 'number_listed_sum', 'mkt_ngn_sum', 'mkt_usd_sum'));
 
     }
 
