@@ -1,5 +1,5 @@
 @extends('Layouts.master')
-@section('title', 'Admin-Panel')
+@section('title', 'Sent SMS Summary')
 @section('content')
 
 
@@ -134,7 +134,7 @@
                         <tr>
                         @foreach($array_data['responseObject'] as $key=>$value)
                             <tr>
-                                <td>{{$value['date']}}</td>
+                                <td>{{date('d-m-Y',strtotime($value['date']))}}</td>
                                 <td>{{$value['total']}}</td>
                             </tr>
                         @endforeach

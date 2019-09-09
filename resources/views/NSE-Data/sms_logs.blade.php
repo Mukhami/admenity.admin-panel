@@ -1,5 +1,5 @@
 @extends('Layouts.master')
-@section('title', 'Admin-Panel')
+@section('title', 'Sent SMS Logs')
 @section('content')
 
 
@@ -125,7 +125,7 @@
                     <thead>
                     <tr>
                         <th>Phone Number</th>
-                        <th>Date Sent</th>
+                        <th>Date & Time Sent</th>
                         <th>Message</th>
                         <th>Status</th>
                     </tr>
@@ -135,7 +135,7 @@
                      @foreach($array_data['responseObject'] as $key=>$value)
                          <tr>
                              <td>{{$value['mobile']}}</td>
-                             <td>{{$value['created_date']}}</td>
+                             <td>{{date('d-m-Y , h:i:sa',strtotime($value['created_date']))}}</td>
                              <td>{{str_limit($value['message'], 80)}}</td>
                              <td>{{$value['status']}}</td>
                          </tr>

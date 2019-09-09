@@ -1,5 +1,5 @@
 @extends('Layouts.master')
-@section('title', 'Market Flow')
+@section('title', 'Create - Market Flow')
 @section('content')
     <div class="main-body">
         <div class="page-wrapper">
