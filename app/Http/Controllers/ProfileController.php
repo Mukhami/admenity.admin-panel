@@ -70,7 +70,7 @@ class ProfileController extends Controller
         ]);
         $profile->save();
 
-        return redirect()->route('index')->with('info', 'Profile Edited.');
+        return redirect()->route('index');
     }
 
 
