@@ -60,4 +60,18 @@ Route::post('edit_performance_by_capitalization', 'ListedSecuritiesController@up
 Route::get('delete_capitalization_group/{id}', 'ListedSecuritiesController@delete_capitalization')->name('capitalization.delete');
 Auth::routes();
 
+//User Roles
+Route::get('create_role', 'HomeController@create_role')->name('role.create');
+Route::post('create_role', 'HomeController@store_role')->name('role.create');
+
+Route::get('listed_panel_users', 'HomeController@user_list')->name('users.list');
+Route::get('edit_user_role/{id}', 'HomeController@show_user_edit')->name('user.edit');
+Route::post('edit_user_role', 'HomeController@update_user')->name('user.update');;
+Route::get('delete_user/{id}', 'HomeController@delete_user')->name('user.delete');
+
+
+Route::get('send_invite', 'HomeController@invite_form')->name('invite');
+Route::post('send_invite', 'HomeController@invite_mail')->name('mail');
+
+
 Route::get('/home', 'HomeController@index')->name('home');

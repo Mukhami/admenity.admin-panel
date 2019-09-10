@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header"><h5>NSE - Dashboard</h5></div>
                 <div class="card-body">
-                    <h6>You are logged out.</h6>
+                    <h6>You are already Logged In!</h6>
                 </div>
             </div>
         </div>

@@ -13,17 +13,37 @@
                             <span class="pcoded-mtext">NSE - Home</span>
                         </a>
                     </li>
+                    @if(\Illuminate\Support\Facades\Auth::user()->role->role == 'Administrator')
+                    <li class="pcoded-hasmenu">
+                        <a href="javascript:void(0)">
+                            <span class="pcoded-mtext">Admin-Panel users</span>
+                        </a>
+                        <ul class="pcoded-submenu">
+                            <li class="">
+                                <a href="{{route('users.list')}}">
+                                    <span class="pcoded-mtext">View Users</span>
+                                </a>
+                            </li>
 
+                            <li class="">
+                                <a href="{{route('invite')}}">
+                                    <span class="pcoded-mtext">Send Invitation</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    @endif
                     <li class="pcoded-hasmenu">
                         <a href="javascript:void(0)">
                             <span class="pcoded-mtext">Fact Sheet Details</span>
                         </a>
                         <ul class="pcoded-submenu">
-                            <li class="">
+                            <li class="active">
                                 <a href="{{route('index')}}">
                                     <span class="pcoded-mtext">View Fact Sheet Details</span>
                                 </a>
                             </li>
+                            @if(\Illuminate\Support\Facades\Auth::user()->role->role == 'Administrator')
                             <li class=" pcoded-hasmenu">
                                 <a href="javascript:void(0)">
                                     <span class="pcoded-mtext">Profile</span>
@@ -53,6 +73,7 @@
                                         </a>
                                     </li>
                                 </ul>
+
                             </li>
 
                             <li class="pcoded-hasmenu">
@@ -98,6 +119,7 @@
                             </li>
 
                         </ul>
+                        @endif
                     </li>
 
 

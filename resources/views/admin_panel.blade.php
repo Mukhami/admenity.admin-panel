@@ -1,5 +1,5 @@
 @extends('Layouts.master')
-@section('title', 'Admin-Panel')
+@section('title', 'Fact Sheet Details')
 
 
 @section('content')
@@ -7,82 +7,6 @@
                 <div class="page-wrapper">
                     <div class="page-body">
                         <div class="row">
-
-
-{{--                            <div class="col-xl-3 col-md-6">--}}
-{{--                                <div class="card bg-c-yellow update-card">--}}
-{{--                                    <div class="card-block">--}}
-{{--                                        <div class="row align-items-end">--}}
-{{--                                            <div class="col-8">--}}
-{{--                                                <h4 class="text-white">$30200</h4>--}}
-{{--                                                <h6 class="text-white m-b-0">All Earnings</h6>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="col-4 text-right">--}}
-{{--                                                <canvas id="update-chart-1" height="50"></canvas>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="card-footer">--}}
-{{--                                        <p class="text-white m-b-0"><i class="feather icon-clock text-white f-14 m-r-10"></i>update : 2:15 am</p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="col-xl-3 col-md-6">--}}
-{{--                                <div class="card bg-c-green update-card">--}}
-{{--                                    <div class="card-block">--}}
-{{--                                        <div class="row align-items-end">--}}
-{{--                                            <div class="col-8">--}}
-{{--                                                <h4 class="text-white">290+</h4>--}}
-{{--                                                <h6 class="text-white m-b-0">Page Views</h6>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="col-4 text-right">--}}
-{{--                                                <canvas id="update-chart-2" height="50"></canvas>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="card-footer">--}}
-{{--                                        <p class="text-white m-b-0"><i class="feather icon-clock text-white f-14 m-r-10"></i>update : 2:15 am</p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="col-xl-3 col-md-6">--}}
-{{--                                <div class="card bg-c-pink update-card">--}}
-{{--                                    <div class="card-block">--}}
-{{--                                        <div class="row align-items-end">--}}
-{{--                                            <div class="col-8">--}}
-{{--                                                <h4 class="text-white">145</h4>--}}
-{{--                                                <h6 class="text-white m-b-0">Task Completed</h6>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="col-4 text-right">--}}
-{{--                                                <canvas id="update-chart-3" height="50"></canvas>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="card-footer">--}}
-{{--                                        <p class="text-white m-b-0"><i class="feather icon-clock text-white f-14 m-r-10"></i>update : 2:15 am</p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="col-xl-3 col-md-6">--}}
-{{--                                <div class="card bg-c-lite-green update-card">--}}
-{{--                                    <div class="card-block">--}}
-{{--                                        <div class="row align-items-end">--}}
-{{--                                            <div class="col-8">--}}
-{{--                                                <h4 class="text-white">500</h4>--}}
-{{--                                                <h6 class="text-white m-b-0">Downloads</h6>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="col-4 text-right">--}}
-{{--                                                <canvas id="update-chart-4" height="50"></canvas>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="card-footer">--}}
-{{--                                        <p class="text-white m-b-0"><i class="feather icon-clock text-white f-14 m-r-10"></i>update : 2:15 am</p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-
-
                             <div class="col-xl-12 col-md-12">
                                 <div class="card">
                                     <div class="card-header">
@@ -90,10 +14,11 @@
                                         <span class="text-muted">{!! $profile->sub_title !!}</span>
                                         <div class="card-header-right">
                                             <ul class="list-unstyled card-option">
+                                                @if(\Illuminate\Support\Facades\Auth::user()->role->role == 'Administrator')
                                                 <li><a href="{{ route('profile.edit', ['id'=>$profile->id]) }}">Edit</a></li>
+                                                @endif
                                                 <li><i class="feather icon-maximize full-card"></i></li>
                                                 <li><i class="feather icon-minus minimize-card"></i></li>
-                                                <li><i class="feather icon-trash-2 close-card"></i></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -108,10 +33,11 @@
                                         <h5>LISTED SECURITIES</h5>
                                         <div class="card-header-right">
                                             <ul class="list-unstyled card-option">
+                                                @if(\Illuminate\Support\Facades\Auth::user()->role->role == 'Administrator')
                                                 <li><a href="{{ route('security.create') }}">Add New</a></li>
+                                                @endif
                                                 <li><i class="feather icon-maximize full-card"></i></li>
                                                 <li><i class="feather icon-minus minimize-card"></i></li>
-                                                <li><i class="feather icon-trash-2 close-card"></i></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -141,6 +67,8 @@
                                                         <td>{{number_format($listing->number_listed)}}</td>
                                                         <td>{{number_format($listing->mkt_cpt_ngn,2)}}</td>
                                                         <td>{{number_format($listing->mkt_cpt_usd, 2)}}</td>
+
+                                                        @if(\Illuminate\Support\Facades\Auth::user()->role->role == 'Administrator')
                                                         <td>
                                                             <div class="dropdown-primary dropdown">
                                                                 <div class="dropdown-toggle" data-toggle="dropdown">
@@ -152,6 +80,7 @@
                                                                 </div>
                                                             </div>
                                                         </td>
+                                                        @endif
                                                     </tr>
                                                 @endforeach
                                                 </tbody>
@@ -179,10 +108,11 @@
                                         <h5>MARKET FLOW</h5>
                                         <div class="card-header-right">
                                             <ul class="list-unstyled card-option">
+                                                @if(\Illuminate\Support\Facades\Auth::user()->role->role == 'Administrator')
                                                 <li><a href="{{ route('market_flow.create') }}">Add New</a></li>
+                                                @endif
                                                 <li><i class="feather icon-maximize full-card"></i></li>
                                                 <li><i class="feather icon-minus minimize-card"></i></li>
-                                                <li><i class="feather icon-trash-2 close-card"></i></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -211,6 +141,7 @@
                                                         <td>{{$mkt_flow->foreign}}%</td>
                                                         <td>N{{number_format($mkt_flow->total_ft_naira,2)}}bn,  ${{number_format($mkt_flow->total_ft_dollar,2)}}bn</td>
 
+                                                        @if(\Illuminate\Support\Facades\Auth::user()->role->role == 'Administrator')
                                                         <td>
                                                             <div class="dropdown-primary dropdown">
                                                                 <div class="dropdown-toggle" data-toggle="dropdown">
@@ -222,6 +153,8 @@
                                                                 </div>
                                                             </div>
                                                         </td>
+                                                        @endif
+
                                                     </tr>
                                                 @endforeach
                                                 </tbody>
@@ -238,10 +171,11 @@
                                         <h5>PERFORMANCE BY INDUSTRY SECTOR</h5>
                                         <div class="card-header-right">
                                             <ul class="list-unstyled card-option">
+                                                @if(\Illuminate\Support\Facades\Auth::user()->role->role == 'Administrator')
                                                 <li><a href="{{ route('sector.create') }}">Add New</a></li>
+                                                @endif
                                                 <li><i class="feather icon-maximize full-card"></i></li>
                                                 <li><i class="feather icon-minus minimize-card"></i></li>
-                                                <li><i class="feather icon-trash-2 close-card"></i></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -269,6 +203,8 @@
                                                         @else
                                                         <td><font color="green">{{$sector->change}}%</font></td>
                                                         @endif
+
+                                                        @if(\Illuminate\Support\Facades\Auth::user()->role->role == 'Administrator')
                                                         <td>
                                                             <div class="dropdown-primary dropdown">
                                                                 <div class="dropdown-toggle" data-toggle="dropdown">
@@ -280,6 +216,7 @@
                                                                 </div>
                                                             </div>
                                                         </td>
+                                                        @endif
                                                     </tr>
                                                 @endforeach
                                                 </tbody>
@@ -296,10 +233,11 @@
                                         <h5>PERFORMANCE BY CAPITALIZATION</h5>
                                         <div class="card-header-right">
                                             <ul class="list-unstyled card-option">
+                                                @if(\Illuminate\Support\Facades\Auth::user()->role->role == 'Administrator')
                                                 <li><a href="{{ route('capitalization.create') }}">Add New</a></li>
+                                                @endif
                                                 <li><i class="feather icon-maximize full-card"></i></li>
                                                 <li><i class="feather icon-minus minimize-card"></i></li>
-                                                <li><i class="feather icon-trash-2 close-card"></i></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -327,6 +265,7 @@
                                                         @else
                                                             <td><font color="green">{{$capt->change}}%</font></td>
                                                         @endif
+                                                        @if(\Illuminate\Support\Facades\Auth::user()->role->role == 'Administrator')
                                                         <td>
                                                             <div class="dropdown-primary dropdown">
                                                                 <div class="dropdown-toggle" data-toggle="dropdown">
@@ -338,6 +277,7 @@
                                                                 </div>
                                                             </div>
                                                         </td>
+                                                        @endif
                                                     </tr>
                                                 @endforeach
                                                 </tbody>

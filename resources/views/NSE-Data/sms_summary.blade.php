@@ -10,7 +10,6 @@
                     <div class="row align-items-center">
                         <div class="col-8">
                             <h6 class="text-c-yellow f-w-600">Monitored Stocks</h6>
-                            {{--                                                <h6 class="text-muted m-b-0">Monitored Stocks</h6>--}}
                         </div>
                         <div class="col-4 text-right">
                             <i class="feather icon-bar-chart f-28"></i>
@@ -35,7 +34,6 @@
                     <div class="row align-items-center">
                         <div class="col-8">
                             <h6 class="text-c-green f-w-600">Sent SMS Summary</h6>
-                            {{--                                                <h6 class="text-muted m-b-0">Sent SMS</h6>--}}
                         </div>
                         <div class="col-4 text-right">
                             <i class="feather icon-mail f-28"></i>
@@ -60,7 +58,6 @@
                     <div class="row align-items-center">
                         <div class="col-8">
                             <h6 class="text-c-blue f-w-600">Sent SMS Logs</h6>
-                            {{--                                                <h6 class="text-muted m-b-0">Sent SMS Logs</h6>--}}
                         </div>
                         <div class="col-4 text-right">
                             <i class="feather icon-clipboard f-28"></i>
@@ -85,7 +82,6 @@
                     <div class="row align-items-center">
                         <div class="col-8">
                             <h6 class="text-c-pink f-w-600">User Details</h6>
-                            {{--<h6 class="text-muted m-b-0">User Details</h6>--}}
                         </div>
                         <div class="col-4 text-right">
                             <i class="feather icon-user f-28"></i>
@@ -117,7 +113,6 @@
                         <li><a href="{{ route('sms.summary') }}">Refresh & View</a></li>
                         <li><i class="feather icon-maximize full-card"></i></li>
                         <li><i class="feather icon-minus minimize-card"></i></li>
-                        <li><i class="feather icon-trash-2 close-card"></i></li>
                     </ul>
                 </div>
             </div>
