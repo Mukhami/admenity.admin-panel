@@ -10,7 +10,7 @@
                             <div class="card-block">
                                 <div class="row align-items-center">
                                     <div class="col-8">
-                                        <h6 class="text-c-yellow f-w-600">Monitored Stocks</h6>
+                                        <h6 class="text-c-yellow f-w-600">User Feedback</h6>
                                         {{--                                                <h6 class="text-muted m-b-0">Monitored Stocks</h6>--}}
                                     </div>
                                     <div class="col-4 text-right">
@@ -21,7 +21,7 @@
                             <div class="card-footer bg-c-yellow">
                                 <div class="row align-items-center">
                                     <div class="col-9">
-                                        <p class="text-white m-b-0">% change</p>
+                                        <p class="text-white m-b-0"><a href="{{route('feedback')}}">View</a></p>
                                     </div>
                                     <div class="col-3 text-right">
                                         <i class="feather icon-trending-down text-white f-16"></i>

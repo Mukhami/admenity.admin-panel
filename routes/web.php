@@ -22,6 +22,7 @@ Route::get('/refresh_access_token', 'StatsController@refreshAccessToken')->name(
 Route::get('/users_list', 'StatsController@getUsersList')->name('user.lists');
 Route::get('/sent_sms_summary', 'StatsController@getSentSMSSummary')->name('sms.summary');
 Route::get('/sent_sms_logs', 'StatsController@getSentSMSLogs')->name('sms.logs');
+Route::get('/user_feedback', 'StatsController@getUserFeedback')->name('feedback');
 
 //listed securities routes
 Route::get('view_securities', 'ListedSecuritiesController@index')->name('listings.index');

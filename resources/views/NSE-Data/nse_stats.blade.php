@@ -10,7 +10,7 @@
                                     <div class="card-block">
                                         <div class="row align-items-center">
                                             <div class="col-8">
-                                                <h6 class="text-c-yellow f-w-600">Monitored Stocks</h6>
+                                                <h6 class="text-c-yellow f-w-600">User Feedback</h6>
 {{--                                                <h6 class="text-muted m-b-0">Monitored Stocks</h6>--}}
                                             </div>
                                             <div class="col-4 text-right">
@@ -21,7 +21,7 @@
                                     <div class="card-footer bg-c-yellow">
                                         <div class="row align-items-center">
                                             <div class="col-9">
-                                                <p class="text-white m-b-0">% change</p>
+                                                <p class="text-white m-b-0"><a href="{{route('feedback')}}">View</a></p>
                                             </div>
                                             <div class="col-3 text-right">
                                                 <i class="feather icon-trending-down text-white f-16"></i>
@@ -160,7 +160,7 @@
                                 <div class="card table-card">
                                     <div class="card-header">
                                         <h5>SMS LOGS</h5>
-                                        <p class="text-muted">Records for the latest 10 sent sms.</p>
+                                        <p class="text-muted">Records for the latest 7 sent sms.</p>
                                         <div class="card-header-right">
                                             <ul class="list-unstyled card-option">
                                                 <li><a href="{{ route('sms.logs') }}">View All</a></li>
@@ -182,7 +182,7 @@
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                @foreach($last_ten as $key=>$value)
+                                                @foreach($last_seven as $key=>$value)
                                                     <tr>
                                                         <td>{{$value['mobile']}}</td>
                                                         <td>{{date('d-m-Y , h:i:sa',strtotime($value['created_date']))}}</td>
@@ -203,7 +203,7 @@
                                         <h6><b>SMS Summary</b></h6>
                                         <p>Total Sent out: 100</p>
 
-                                        <p class="text-muted">Records for the last 5 days.</p>
+                                        <p class="text-muted">Records for the last 6 days.</p>
 
                                         @foreach($last_five as $key=>$value)
                                             <p class="text-muted">{{date('d-m-Y',strtotime($value['date']))}}<span class="f-right">Sent SMS: {{$value['total']}}</span></p>
@@ -216,6 +216,51 @@
                                         <div class="text-center">
                                             <a href="{{route('sms.summary')}}" class=" b-b-primary text-primary">View All</a>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-8 col-md-12">
+                            <div class="card table-card">
+                                <div class="card-header">
+                                    <h5>User Feedback</h5>
+                                    <div class="card-header-right">
+                                        <ul class="list-unstyled card-option">
+                                            <li><a href="{{ route('feedback') }}">View All</a></li>
+                                            <li><i class="feather icon-maximize full-card"></i></li>
+                                            <li><i class="feather icon-minus minimize-card"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-block">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover  table-borderless">
+                                            <thead>
+                                            <tr>
+                                                <th>Email Address</th>
+                                                <th>Rating</th>
+                                                <th>Message</th>
+                                                <th>Date</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                            @foreach($feedback_array['data'] as $key=>$value)
+                                                <tr>
+                                                    <td>{{$value['email']}}</td>
+                                                    <td>{{$value['rating']}}</td>
+                                                    @if($value['feedback']== "")
+                                                        <td class="text-muted">No comment</td>
+                                                    @else
+                                                    <td>{{str_limit($value['feedback'], 55)}}</td>
+                                                    @endif
+                                                    <td>{{date('d-m-Y , h:i:sa',strtotime($value['created_date']))}}</td>
+                                                    {{--                                                        <td>{{$value['status']}}</td>--}}
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>

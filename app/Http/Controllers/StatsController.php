@@ -25,7 +25,7 @@ class StatsController extends Controller
         $response = $http->request('POST', 'http://139.162.161.150:8585/authenticate',[
             'form_params'=>[
                 'grant_type' => 'refresh_token',
-                'refresh_token' => 'd219a297-d588-403c-908b-236bbc8b1a8e'
+                'refresh_token' => '2e362a31-63da-4d0b-bec2-0b70ffb657bf'
             ]
         ]);
         $data = $response->getBody();
@@ -43,16 +43,28 @@ class StatsController extends Controller
         $response_logs = $client_logs->request('POST', 'http://139.162.161.150:8585/rest/get/sms/logs?access_token='.$token);
         $sms_logs = $response_logs->getBody();
         $sms_logs_array = json_decode($sms_logs, true);
-        $last_ten = array_slice( $sms_logs_array['responseObject'], -10);
+        $last_seven = array_slice( $sms_logs_array['responseObject'], -7);
 
         //sms summary div
         $client_sms_summary = new Client(['headers' => ['content-type' => 'application/json', 'Accept' => 'application/json'],]);
         $response_summary = $client_sms_summary->request('POST', 'http://139.162.161.150:8585/rest/get/sms/summary?access_token='.$token);
         $sms_summary = $response_summary->getBody();
         $sms_summary_array = json_decode($sms_summary, true);
-        $last_five = array_slice( $sms_summary_array['responseObject'], -5);
+//        $total_sms = $sms_summary_array['responseObject'][0]['total'];
+//        foreach($sms_summary_array['responseObject'] as $key=>$value){
+//            $total_sms = array_sum($value['total']);
+//        }
+//        dd($total_sms);
+        $last_five = array_slice( $sms_summary_array['responseObject'], -6);
 
-        return view('NSE-Data.nse_stats', compact('user_data_array', 'sms_logs_array', 'last_ten', 'last_five'));
+        //user feedback
+        $client_feedback = new Client(['headers' => ['content-type' => 'application/json', 'Accept' => 'application/json'],]);
+        $response_feedback = $client_feedback->request('GET', 'http://139.162.161.150/nigg/index.php/api/getUserFeedback');
+        $user_feedback = $response_feedback->getBody();
+        $feedback_array = json_decode($user_feedback, true);
+//        dd($feedback_array['data']);
+
+        return view('NSE-Data.nse_stats', compact('user_data_array', 'sms_logs_array', 'last_seven', 'last_five', 'feedback_array'));
     }
 
     public function refreshAccessToken(){
@@ -67,7 +79,7 @@ class StatsController extends Controller
         $response = $client->request('POST', 'http://139.162.161.150:8585/authenticate',[
             'form_params'=>[
                 'grant_type' => 'refresh_token',
-                'refresh_token' => 'd219a297-d588-403c-908b-236bbc8b1a8e'
+                'refresh_token' => '2e362a31-63da-4d0b-bec2-0b70ffb657bf'
             ]
         ]);
         $data = $response->getBody();
@@ -89,7 +101,7 @@ class StatsController extends Controller
         $response = $client->request('POST', 'http://139.162.161.150:8585/authenticate',[
             'form_params'=>[
                 'grant_type' => 'refresh_token',
-                'refresh_token' => 'd219a297-d588-403c-908b-236bbc8b1a8e'
+                'refresh_token' => '2e362a31-63da-4d0b-bec2-0b70ffb657bf'
             ]
         ]);
         $data = $response->getBody();
@@ -115,7 +127,7 @@ class StatsController extends Controller
         $response = $client->request('POST', 'http://139.162.161.150:8585/authenticate',[
             'form_params'=>[
                 'grant_type' => 'refresh_token',
-                'refresh_token' => 'd219a297-d588-403c-908b-236bbc8b1a8e'
+                'refresh_token' => '2e362a31-63da-4d0b-bec2-0b70ffb657bf'
             ]
         ]);
         $data = $response->getBody();
@@ -142,7 +154,7 @@ class StatsController extends Controller
         $response = $client->request('POST', 'http://139.162.161.150:8585/authenticate',[
             'form_params'=>[
                 'grant_type' => 'refresh_token',
-                'refresh_token' => 'd219a297-d588-403c-908b-236bbc8b1a8e'
+                'refresh_token' => '2e362a31-63da-4d0b-bec2-0b70ffb657bf'
             ]
         ]);
         $data = $response->getBody();
@@ -154,5 +166,15 @@ class StatsController extends Controller
         $array_data = json_decode($data, true);
 //        dd($array_data['responseObject'][2]['message']);
         return view('NSE-Data.sms_logs', compact('array_data'));
+    }
+
+
+    public function getUserFeedback(){
+        $client_feedback = new Client(['headers' => ['content-type' => 'application/json', 'Accept' => 'application/json'],]);
+        $response_feedback = $client_feedback->request('GET', 'http://139.162.161.150/nigg/index.php/api/getUserFeedback');
+        $user_feedback = $response_feedback->getBody();
+        $feedback_array = json_decode($user_feedback, true);
+
+        return view('NSE-Data.user_feedback', compact('feedback_array'));
     }
 }
