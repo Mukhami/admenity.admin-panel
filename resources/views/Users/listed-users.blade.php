@@ -31,6 +31,7 @@
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->created_at}}</td>
                                 <td>
+                                    @if(\Illuminate\Support\Facades\Auth::user()->id != $user->id)
                                     <div class="dropdown-primary dropdown">
                                         <div class="dropdown-toggle" data-toggle="dropdown">
                                             <i class="feather icon-anchor"></i>
@@ -40,6 +41,7 @@
                                             <a class="dropdown-item" href="{{route('user.delete', ['id'=>$user->id])}}">Delete</a>
                                         </div>
                                     </div>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

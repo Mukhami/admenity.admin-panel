@@ -1,5 +1,5 @@
 @extends('Layouts.master')
-@section('title', 'Sent SMS Logs')
+@section('title', 'User Feedback')
 @section('content')
 
 
@@ -60,7 +60,6 @@
                     <div class="row align-items-center">
                         <div class="col-8">
                             <h6 class="text-c-blue f-w-600">Sent SMS Logs</h6>
-                            {{--                                                <h6 class="text-muted m-b-0">Sent SMS Logs</h6>--}}
                         </div>
                         <div class="col-4 text-right">
                             <i class="feather icon-clipboard f-28"></i>
@@ -106,45 +105,49 @@
         </div>
     </div>
 
-<div class="col-xl-12 col-md-12">
-    <div class="card table-card">
-        <div class="card-header">
-            <h5>SMS LOGS</h5>
-            <div class="card-header-right">
-                <ul class="list-unstyled card-option">
-                    <li><a href="{{ route('sms.logs') }}">Refresh & View</a></li>
-                    <li><i class="feather icon-maximize full-card"></i></li>
-                    <li><i class="feather icon-minus minimize-card"></i></li>
-                </ul>
+    <div class="col-xl-12 col-md-12">
+        <div class="card table-card">
+            <div class="card-header">
+                <h5>User Feedback</h5>
+                <div class="card-header-right">
+                    <ul class="list-unstyled card-option">
+                        <li><a href="{{ route('feedback') }}">View All</a></li>
+                        <li><i class="feather icon-maximize full-card"></i></li>
+                        <li><i class="feather icon-minus minimize-card"></i></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="card-block">
-            <div class="table-responsive">
-                <table class="table table-hover  table-borderless">
-                    <thead>
-                    <tr>
-                        <th>Phone Number</th>
-                        <th>Date & Time Sent</th>
-                        <th>Message</th>
-                        <th>Status</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                     @foreach($array_data['responseObject'] as $key=>$value)
-                         <tr>
-                             <td>{{$value['mobile']}}</td>
-                             <td>{{date('d-m-Y , h:i:sa',strtotime($value['created_date']))}}</td>
-                             <td>{{str_limit($value['message'], 80)}}</td>
-                             <td>{{$value['status']}}</td>
-                         </tr>
-                         @endforeach
-
-                    </tbody>
-                </table>
+            <div class="card-block">
+                <div class="table-responsive">
+                    <table class="table table-hover  table-borderless">
+                        <thead>
+                        <tr>
+                            <th>Email Address</th>
+                            <th>Rating</th>
+                            <th>Message</th>
+                            <th>Date</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                        @foreach($feedback_array['data'] as $key=>$value)
+                            <tr>
+                                <td>{{$value['email']}}</td>
+                                <td>{{$value['rating']}}</td>
+                                @if($value['feedback']== "")
+                                    <td class="text-muted">No comment</td>
+                                @else
+                                    <td>{{str_limit($value['feedback'], 55)}}</td>
+                                @endif
+                                <td>{{date('d-m-Y , h:i:sa',strtotime($value['created_date']))}}</td>
+                                {{--                                                        <td>{{$value['status']}}</td>--}}
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 @endsection
