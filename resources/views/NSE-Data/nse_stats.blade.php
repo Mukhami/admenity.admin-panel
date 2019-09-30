@@ -117,13 +117,12 @@
                                                 <li><a href="{{ route('user.lists') }}">View All</a></li>
                                                 <li><i class="feather icon-maximize full-card"></i></li>
                                                 <li><i class="feather icon-minus minimize-card"></i></li>
-                                                <li><i class="feather icon-trash-2 close-card"></i></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="card-block">
                                         <div class="table-responsive">
-                                            <table class="table table-hover table-borderless">
+                                            <table class="table table-hover table-boFrderless">
                                                 <thead>
                                                 <tr>
                                                     <th>Name</th>
@@ -201,8 +200,6 @@
                                 <div class="card quater-card">
                                     <div class="card-block">
                                         <h6><b>SMS Summary</b></h6>
-                                        <p>Total Sent out: 100</p>
-
                                         <p class="text-muted">Records for the last 6 days.</p>
 
                                         @foreach($last_five as $key=>$value)
