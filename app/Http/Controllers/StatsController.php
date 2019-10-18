@@ -25,7 +25,7 @@ class StatsController extends Controller
         $response = $http->request('POST', 'http://139.162.161.150:8585/authenticate',[
             'form_params'=>[
                 'grant_type' => 'refresh_token',
-                'refresh_token' => 'fd912717-0c48-4986-a427-402053ca2804'
+                'refresh_token' => '01f676cd-382a-466f-a900-8e02e4e78a21'
             ]
         ]);
         $data = $response->getBody();
@@ -79,7 +79,7 @@ class StatsController extends Controller
         $response = $client->request('POST', 'http://139.162.161.150:8585/authenticate',[
             'form_params'=>[
                 'grant_type' => 'refresh_token',
-                'refresh_token' => 'fd912717-0c48-4986-a427-402053ca2804'
+                'refresh_token' => '01f676cd-382a-466f-a900-8e02e4e78a21'
             ]
         ]);
         $data = $response->getBody();
@@ -101,7 +101,7 @@ class StatsController extends Controller
         $response = $client->request('POST', 'http://139.162.161.150:8585/authenticate',[
             'form_params'=>[
                 'grant_type' => 'refresh_token',
-                'refresh_token' => 'fd912717-0c48-4986-a427-402053ca2804'
+                'refresh_token' => '01f676cd-382a-466f-a900-8e02e4e78a21'
             ]
         ]);
         $data = $response->getBody();
@@ -127,7 +127,7 @@ class StatsController extends Controller
         $response = $client->request('POST', 'http://139.162.161.150:8585/authenticate',[
             'form_params'=>[
                 'grant_type' => 'refresh_token',
-                'refresh_token' => 'fd912717-0c48-4986-a427-402053ca2804'
+                'refresh_token' => '01f676cd-382a-466f-a900-8e02e4e78a21'
             ]
         ]);
         $data = $response->getBody();
@@ -154,7 +154,7 @@ class StatsController extends Controller
         $response = $client->request('POST', 'http://139.162.161.150:8585/authenticate',[
             'form_params'=>[
                 'grant_type' => 'refresh_token',
-                'refresh_token' => 'fd912717-0c48-4986-a427-402053ca2804'
+                'refresh_token' => '01f676cd-382a-466f-a900-8e02e4e78a21'
             ]
         ]);
         $data = $response->getBody();

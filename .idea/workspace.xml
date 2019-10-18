@@ -4,8 +4,7 @@
     <list default="true" id="2d955bb2-ca31-4904-9b4a-dac2d3defd87" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StatsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StatsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/NSE-Data/nse_stats.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/NSE-Data/nse_stats.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/NSE-Data/user_feedback.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/NSE-Data/user_feedback.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Layouts/side-bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/side-bar.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,49 +21,49 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/NSE-Data/user_details.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StatsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
+            <state relative-caret-position="177">
+              <caret line="129" column="30" selection-start-line="129" selection-start-column="17" selection-end-line="129" selection-end-column="30" />
+              <folding>
+                <element signature="e#40#68#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/NSE-Data/user_feedback.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/NSE-Data/nse_stats.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2210">
-              <caret line="130" column="28" selection-start-line="130" selection-start-column="28" selection-end-line="130" selection-end-column="28" />
+            <state relative-caret-position="3417">
+              <caret line="201" column="67" selection-start-line="201" selection-start-column="67" selection-end-line="201" selection-end-column="67" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/Market-Flow/market-flow-form.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/Profile/profile-form_create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="39" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
+            <state relative-caret-position="748">
+              <caret line="44" column="14" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/Performance/by-capitalization-form.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/Layouts/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="60" column="72" selection-start-line="60" selection-start-column="72" selection-end-line="60" selection-end-column="72" />
+            <state relative-caret-position="493">
+              <caret line="42" column="26" lean-forward="true" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StatsController.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/Layouts/side-bar.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="81" column="25" selection-start-line="81" selection-start-column="17" selection-end-line="81" selection-end-column="25" />
-              <folding>
-                <element signature="e#40#68#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="464">
+              <caret line="38" column="79" selection-start-line="38" selection-start-column="79" selection-end-line="38" selection-end-column="79" />
             </state>
           </provider>
         </entry>
@@ -124,8 +123,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pcoded-con</find>
-      <find>sa</find>
       <find>profile</find>
       <find>Notification</find>
       <find>profil</find>
@@ -154,6 +151,8 @@
       <find>mu</find>
       <find>No</find>
       <find>refresh_</find>
+      <find>refresh_token</find>
+      <find>NSE</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -200,7 +199,6 @@
         <option value="$PROJECT_DIR$/config/services.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/resources/views/Emails/user-invite.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/Layouts/side-bar.blade.php" />
         <option value="$PROJECT_DIR$/app/Mail/SendInvite.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/resources/views/Users/listed-users.blade.php" />
@@ -210,9 +208,10 @@
         <option value="$PROJECT_DIR$/resources/views/NSE-Data/sms_logs.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/NSE-Data/sms_summary.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/NSE-Data/user_details.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/NSE-Data/nse_stats.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/NSE-Data/user_feedback.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/NSE-Data/nse_stats.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/StatsController.php" />
+        <option value="$PROJECT_DIR$/resources/views/Layouts/side-bar.blade.php" />
       </list>
     </option>
   </component>
@@ -311,8 +310,7 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="316" />
-    <option name="y" value="167" />
+    <option name="x" value="676" />
     <option name="width" value="697" />
     <option name="height" value="735" />
   </component>
@@ -322,48 +320,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="laravel-admin" type="b2602c69:ProjectViewProjectNode" />
               <item name="laravel-admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="laravel-admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="laravel-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="laravel-admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="laravel-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="laravel-admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="laravel-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="laravel-admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="laravel-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Mail" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="laravel-admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="laravel-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="laravel-admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="laravel-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="laravel-admin" type="b2602c69:ProjectViewProjectNode" />
@@ -461,6 +423,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -547,12 +510,14 @@
       <workItem from="1569319785668" duration="1349000" />
       <workItem from="1569391078344" duration="3790000" />
       <workItem from="1569502652391" duration="1411000" />
-      <workItem from="1569829025281" duration="208000" />
+      <workItem from="1569829025281" duration="951000" />
+      <workItem from="1570606603189" duration="735000" />
+      <workItem from="1571381129997" duration="556000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="218507000" />
+    <option name="totallyTimeSpent" value="220394000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -569,7 +534,7 @@
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.22692889" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.23373677" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.32890365" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
@@ -615,13 +580,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/Layouts/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/Users/create-role.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="461">
@@ -810,13 +768,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/Layouts/side-bar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="61" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_20_080204_create_profile_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -828,13 +779,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="26" column="49" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/Layouts/master.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -879,13 +823,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/NSE-Data/nse_stats.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2108">
-          <caret line="124" column="84" selection-start-line="124" selection-start-column="84" selection-end-line="124" selection-end-column="84" />
         </state>
       </provider>
     </entry>
@@ -938,6 +875,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/Performance/by-capitalization-form.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="60" column="72" selection-start-line="60" selection-start-column="72" selection-end-line="60" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/NSE-Data/nse_stats.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3417">
+          <caret line="201" column="67" selection-start-line="201" selection-start-column="67" selection-end-line="201" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/Profile/profile-form_create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="44" column="14" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin_panel.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2584">
@@ -979,20 +937,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/Performance/by-capitalization-form.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/Layouts/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="60" column="72" selection-start-line="60" selection-start-column="72" selection-end-line="60" selection-end-column="72" />
+        <state relative-caret-position="493">
+          <caret line="42" column="26" lean-forward="true" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StatsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
-          <caret line="81" column="25" selection-start-line="81" selection-start-column="17" selection-end-line="81" selection-end-column="25" />
+          <caret line="129" column="30" selection-start-line="129" selection-start-column="17" selection-end-line="129" selection-end-column="30" />
           <folding>
             <element signature="e#40#68#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/Layouts/side-bar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="38" column="79" selection-start-line="38" selection-start-column="79" selection-end-line="38" selection-end-column="79" />
         </state>
       </provider>
     </entry>
