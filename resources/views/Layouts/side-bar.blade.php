@@ -13,6 +13,34 @@
                             <span class="pcoded-mtext">NSE - Home</span>
                         </a>
                     </li>
+                    <li class="pcoded-hasmenu">
+                        <a href="javascript:void(0)">
+                            <span class="pcoded-mtext">NSE Stats</span>
+                        </a>
+                        <ul class="pcoded-submenu">
+                            <li class="">
+                                <a href="{{route('users.list')}}">
+                                    <span class="pcoded-mtext">View Users</span>
+                                </a>
+                            </li>
+
+                            <li class="">
+                                <a href="{{route('sms.logs')}}">
+                                    <span class="pcoded-mtext">View SMS Logs</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="{{route('sms.summary')}}">
+                                    <span class="pcoded-mtext">View SMS Summary</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="{{route('feedback')}}">
+                                    <span class="pcoded-mtext">View App Reviews</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     @if(\Illuminate\Support\Facades\Auth::user()->role->role == 'Administrator')
                     <li class="pcoded-hasmenu">
                         <a href="javascript:void(0)">
