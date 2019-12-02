@@ -218,7 +218,7 @@
                             </div>
                         </div>
 
-                        <div class="col-xl-8 col-md-12">
+                        <div class="col-xl-12 col-md-12">
                             <div class="card table-card">
                                 <div class="card-header">
                                     <h5>User Feedback</h5>
