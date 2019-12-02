@@ -20,7 +20,7 @@
                         <ul class="pcoded-submenu">
                             <li class="">
                                 <a href="{{route('users.list')}}">
-                                    <span class="pcoded-mtext">View Users</span>
+                                    <span class="pcoded-mtext">Admin Users</span>
                                 </a>
                             </li>
 

@@ -88,7 +88,6 @@ class StatsController extends Controller
 
     }
 
-
     public function getUsersList(){
         $client = new Client([
             'auth' => [
@@ -167,7 +166,6 @@ class StatsController extends Controller
 //        dd($array_data['responseObject'][2]['message']);
         return view('NSE-Data.sms_logs', compact('array_data'));
     }
-
 
     public function getUserFeedback(){
         $client_feedback = new Client(['headers' => ['content-type' => 'application/json', 'Accept' => 'application/json'],]);
