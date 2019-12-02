@@ -5,16 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/laravel-admin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-admin.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StatsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StatsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Layouts/side-bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/side-bar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/NSE-Data/nse_stats.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/NSE-Data/nse_stats.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/NSE-Data/sms_logs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/NSE-Data/sms_logs.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/NSE-Data/sms_summary.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/NSE-Data/sms_summary.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/NSE-Data/user_feedback.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/NSE-Data/user_feedback.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,15 +24,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StatsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="190" column="72" selection-start-line="190" selection-start-column="36" selection-end-line="190" selection-end-column="72" />
+            <state relative-caret-position="144">
+              <caret line="273" column="28" lean-forward="true" selection-start-line="273" selection-start-column="28" selection-end-line="273" selection-end-column="28" />
               <folding>
                 <element signature="e#40#58#0#PHP" expanded="true" />
                 <element signature="e#4402#5993#0#PHP" />
                 <element signature="e#5038#6089#0#PHP" />
-                <element signature="e#6136#6433#0#PHP" />
                 <element signature="e#4862#5065#1#PHP" />
-                <element signature="e#9159#10290#0#PHP" />
                 <element signature="e#6999#7482#0#PHP" />
               </folding>
             </state>
@@ -136,7 +125,7 @@
         <entry file="file://$PROJECT_DIR$/config/mail.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+              <caret line="61" selection-start-line="61" selection-end-line="61" />
             </state>
           </provider>
         </entry>
@@ -330,6 +319,7 @@
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
       <path value="$PROJECT_DIR$/vendor/s-ichikawa/laravel-sendgrid-driver" />
       <path value="$PROJECT_DIR$/vendor/yajra/laravel-datatables-oracle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -563,12 +553,12 @@
       <workItem from="1572259117112" duration="615000" />
       <workItem from="1574683853677" duration="2136000" />
       <workItem from="1575037039309" duration="1205000" />
-      <workItem from="1575260961789" duration="13577000" />
+      <workItem from="1575260961789" duration="14822000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="238779000" />
+    <option name="totallyTimeSpent" value="240024000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -953,7 +943,7 @@
     <entry file="file://$PROJECT_DIR$/config/mail.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
         </state>
       </provider>
     </entry>
@@ -1010,15 +1000,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StatsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="190" column="72" selection-start-line="190" selection-start-column="36" selection-end-line="190" selection-end-column="72" />
+        <state relative-caret-position="144">
+          <caret line="273" column="28" lean-forward="true" selection-start-line="273" selection-start-column="28" selection-end-line="273" selection-end-column="28" />
           <folding>
             <element signature="e#40#58#0#PHP" expanded="true" />
             <element signature="e#4402#5993#0#PHP" />
             <element signature="e#5038#6089#0#PHP" />
-            <element signature="e#6136#6433#0#PHP" />
             <element signature="e#4862#5065#1#PHP" />
-            <element signature="e#9159#10290#0#PHP" />
             <element signature="e#6999#7482#0#PHP" />
           </folding>
         </state>
