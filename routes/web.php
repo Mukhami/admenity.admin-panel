@@ -23,6 +23,11 @@ Route::get('/users_list', 'StatsController@getUsersList')->name('user.lists');
 Route::get('/sent_sms_summary', 'StatsController@getSentSMSSummary')->name('sms.summary');
 Route::get('/sent_sms_logs', 'StatsController@getSentSMSLogs')->name('sms.logs');
 Route::get('/user_feedback', 'StatsController@getUserFeedback')->name('feedback');
+Route::get('/all_users_data', 'StatsController@getAllUsers')->name('all.users');
+Route::get('/users-datatable', 'StatsController@usersData')->name('users.data');
+Route::get('/sms-logs-datatable', 'StatsController@smsLogsData')->name('logs.data');
+Route::get('/sms-summary-datatable', 'StatsController@smsSummaryData')->name('sms.summary.data');
+//Route::get('/app-users', 'StatsController@usersData')->name('all.');
 
 //listed securities routes
 Route::get('view_securities', 'ListedSecuritiesController@index')->name('listings.index');

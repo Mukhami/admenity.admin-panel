@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use Yajra\DataTables\Facades\DataTables;
 
 class StatsController extends Controller
 {
@@ -38,6 +40,13 @@ class StatsController extends Controller
         $user_data = $response_user->getBody();
         $user_data_array = json_decode($user_data, true);
 
+        $client_allUsers = new Client(['headers' => ['content-type' => 'application/json', 'Accept' => 'application/json'],]);
+        $response = $client_allUsers->request('GET', 'http://139.162.161.150/nigg/index.php/api/getAllUsers');
+        $allData = $response->getBody();
+        $allUserData =  json_decode($allData, true);
+        $last10 = array_slice($allUserData['users'], -20);
+//        dd($allUserData);
+
         //sms logs table
         $client_logs = new Client(['headers' => ['content-type' => 'application/json', 'Accept' => 'application/json'],]);
         $response_logs = $client_logs->request('POST', 'http://139.162.161.150:8585/rest/get/sms/logs?access_token='.$token);
@@ -64,7 +73,107 @@ class StatsController extends Controller
         $feedback_array = json_decode($user_feedback, true);
 //        dd($feedback_array['data']);
 
-        return view('NSE-Data.nse_stats', compact('user_data_array', 'sms_logs_array', 'last_seven', 'last_five', 'feedback_array'));
+        return view('NSE-Data.nse_stats', compact('user_data_array','last10', 'sms_logs_array', 'last_seven', 'last_five', 'feedback_array', 'allUserData'));
+    }
+
+
+    public function usersData(){
+        $client_allUsers = new Client(['headers' => ['content-type' => 'application/json', 'Accept' => 'application/json'],]);
+        $response = $client_allUsers->request('GET', 'http://139.162.161.150/nigg/index.php/api/getAllUsers');
+        $allData = $response->getBody();
+        $allUserData =  json_decode($allData, true);
+
+        $type = $allUserData['users'];
+
+        return Datatables::of($type)
+            ->editColumn('email', function ($type) {
+                return $type['email'];
+            })
+            ->editColumn('date_registered', function ($type) {
+                return Carbon::parse(strtotime($type['created_on']))->format('d-m-Y h:i');
+//                return date('d-m-Y , h:i:sa', strtotime($type['created_on']));
+            })
+            ->make(true);
+    }
+
+    public function smsLogsData(){
+        $client = new Client([
+            'auth' => [
+                'app_client',
+                'secret'
+            ],
+            'headers' => [
+                'Content-Type' => 'application/x-www-form-urlencoded']
+        ]);
+        $response = $client->request('POST', 'http://139.162.161.150:8585/authenticate',[
+            'form_params'=>[
+                'grant_type' => 'refresh_token',
+                'refresh_token' => '558cba57-6a39-4152-9feb-1909b95aafda'
+            ]
+        ]);
+        $data = $response->getBody();
+        $data = json_decode($data, true);
+        $token = $data['access_token'];
+        $client = new Client(['headers' => ['content-type' => 'application/json', 'Accept' => 'application/json'],]);
+        $response = $client->request('POST', 'http://139.162.161.150:8585/rest/get/sms/logs?access_token='.$token);
+        $data = $response->getBody();
+        $array_data = json_decode($data, true);
+
+        $type = $array_data['responseObject'];
+
+        return Datatables::of($type)
+            ->editColumn('id', function ($type) {
+                return $type['id'];
+            })
+            ->editColumn('phone_number', function ($type) {
+                return $type['mobile'];
+            })
+            ->editColumn('date_registered', function ($type) {
+                return date('d-m-Y , h:i:sa',strtotime($type['created_date']));
+            })
+            ->editColumn('message', function ($type) {
+                return str_limit($type['message'], 60);
+            })
+            ->editColumn('status', function ($type) {
+                return $type['status'];
+            })
+            ->make(true);
+    }
+
+    public function smsSummaryData(){
+        $client = new Client([
+            'auth' => [
+                'app_client',
+                'secret'
+            ],
+            'headers' => [
+                'Content-Type' => 'application/x-www-form-urlencoded']
+        ]);
+        $response = $client->request('POST', 'http://139.162.161.150:8585/authenticate',[
+            'form_params'=>[
+                'grant_type' => 'refresh_token',
+                'refresh_token' => '558cba57-6a39-4152-9feb-1909b95aafda'
+            ]
+        ]);
+        $data = $response->getBody();
+        $data = json_decode($data, true);
+        $token = $data['access_token'];
+
+        $client = new Client(['headers' => ['content-type' => 'application/json', 'Accept' => 'application/json'],]);
+        $response = $client->request('POST', 'http://139.162.161.150:8585/rest/get/sms/summary?access_token='.$token);
+        $data = $response->getBody();
+        $array_data = json_decode($data, true);
+        $type = $array_data['responseObject'];
+
+        return Datatables::of($type)
+            ->editColumn('date', function ($type) {
+                return date('d-m-Y',strtotime($type['date']));
+            })
+            ->editColumn('total', function ($type) {
+                return  $type['total'];
+            })
+            ->make(true);
+
     }
 
     public function refreshAccessToken(){
@@ -108,10 +217,21 @@ class StatsController extends Controller
         $token = $data['access_token'];
 
         $client = new Client(['headers' => ['content-type' => 'application/json', 'Accept' => 'application/json'],]);
-        $response = $client->request('POST', 'http://139.162.161.150:8585/rest/users/list?access_token='.$token);
+        $response = $client->request('POST', 'http://139.162.161.150:8585/rest/users/summary?access_token='.$token);
         $data = $response->getBody();
         $array_data = json_decode($data, true);
         return view('NSE-Data.user_details', compact('array_data'));
+    }
+
+    public function getAllUsers()
+    {
+        $client = new Client();
+        $response = $client->request('GET', 'http://139.162.161.150/nigg/index.php/api/getAllUsers');
+        $data = $response->getBody();
+        $array_data =  json_decode($data, true);
+
+        return view('NSE-Data.all_users', compact('array_data'));
+
     }
 
     public function getSentSMSSummary(){
@@ -163,6 +283,7 @@ class StatsController extends Controller
         $response = $client->request('POST', 'http://139.162.161.150:8585/rest/get/sms/logs?access_token='.$token);
         $data = $response->getBody();
         $array_data = json_decode($data, true);
+//        dd($array_data);
 //        dd($array_data['responseObject'][2]['message']);
         return view('NSE-Data.sms_logs', compact('array_data'));
     }

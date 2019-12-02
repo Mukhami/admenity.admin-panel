@@ -1,5 +1,9 @@
 @extends('Layouts.master')
 @section('title', 'NSE Stats')
+@section('css')
+    <link href="{{ asset('datatables/datatables.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
             <div class="main-body">
                 <div class="page-wrapper">
@@ -96,7 +100,7 @@
                                     <div class="card-footer bg-c-pink">
                                         <div class="row align-items-center">
                                             <div class="col-9">
-                                                <p class="text-white m-b-0"><a href="{{route('user.lists')}}">View</a></p>
+                                                <p class="text-white m-b-0"><a href="{{route('all.users')}}">View</a></p>
                                             </div>
                                             <div class="col-3 text-right">
                                                 <i class="feather icon-trending-up text-white f-16"></i>
@@ -111,39 +115,34 @@
                             <div class="col-xl-12 col-md-12">
                                 <div class="card table-card">
                                     <div class="card-header">
-                                        <h5>USER DETAILS</h5>
+                                        <h5>MOBILE APP REGISTERED USERS</h5>
                                         <div class="card-header-right">
                                             <ul class="list-unstyled card-option">
-                                                <li><a href="{{ route('user.lists') }}">View All</a></li>
+                                                <li><a href="{{ route('all.users') }}">View All</a></li>
                                                 <li><i class="feather icon-maximize full-card"></i></li>
                                                 <li><i class="feather icon-minus minimize-card"></i></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="card-block">
-                                        <div class="table-responsive">
-                                            <table class="table table-hover table-boFrderless">
+                                        <div class="table-responsive" >
+                                            <table class="table table-hover table-boFrderless" id="allUsers">
                                                 <thead>
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th>E-mail</th>
-                                                    <th>Mobile Number</th>
-                                                    <th>Country</th>
-                                                    <th>Registration Date & Time</th>
-                                                    <th>Status</th>
+                                                    <th>Registered E-mail Address</th>
+                                                    <th>Registration Date</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach($user_data_array['responseObject'] as $key=>$value)
-                                                    <tr>
-                                                        <td>{{$value['lastname']}}</td>
-                                                        <td>{{$value['email']}}</td>
-                                                        <td>{{$value['mobile']}}</td>
-                                                        <td>{{$value['country']}}</td>
-                                                        <td>{{date('d-m-Y , h:i:sa',strtotime($value['createdAt']))}}</td>
-                                                        <td>{{$value['status']}}</td>
-                                                    </tr>
-                                                @endforeach
+{{--                                                @foreach($last10 as $value)--}}
+{{--                                                    <tr>--}}
+{{--                                                        <td>{{$value['first_name']}}</td>--}}
+{{--                                                        <td>{{$value['last_name']}}</td>--}}
+{{--                                                        <td>{{$value['email']}}</td>--}}
+{{--                                                        <td>{{$value['phone']}}</td>--}}
+{{--                                                        <td>{{date('d-m-Y , h:i:sa',strtotime($value['created_on']))}}</td>--}}
+{{--                                                    </tr>--}}
+{{--                                                @endforeach--}}
                                                 </tbody>
                                             </table>
                                         </div>
@@ -262,16 +261,38 @@
                                 </div>
                             </div>
                         </div>
-
-
-
-
-
-
-
                     </div>
                 </div>
                 <div id="styleSelector">
                 </div>
             </div>
         @endsection
+@section('js')
+    <script type="text/javascript" src="{{asset('datatables/datatables.min.js')}}" ></script>
+
+    <script>
+        $('#allUsers').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: '{!! route('users.data')!!}',
+            dom: 'Bfrtip',
+            buttons: [
+                'colvis','copy', 'excel', 'print',
+
+                {
+                    extend: 'csvHtml5',
+                    text: 'CSV',
+                    exportOptions: {
+                        columns: [0,1, 2,3,4, 5,6,7],
+                    },
+                    footer: true,
+                },
+                'pageLength'
+            ],
+            columns: [
+                {data: 'email', name: 'email'},
+                {data: 'date_registered', name: 'date_registered'},            ]
+        });
+    </script>
+
+@endsection

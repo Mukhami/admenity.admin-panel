@@ -92,7 +92,7 @@
                 <div class="card-footer bg-c-pink">
                     <div class="row align-items-center">
                         <div class="col-9">
-                            <p class="text-white m-b-0"><a href="{{route('user.lists')}}">View</a></p>
+                            <p class="text-white m-b-0"><a href="{{route('all.users')}}">View</a></p>
                         </div>
                         <div class="col-3 text-right">
                             <i class="feather icon-trending-up text-white f-16"></i>
@@ -118,22 +118,17 @@
                 </div>
             </div>
             <div class="card-block">
-                <div class="table-responsive">
-                    <table class="table table-hover  table-borderless">
+                <div class="table-responsive" style="text-align: right">
+                    <table class="table table-hover  table-borderless" id="summaryData">
                         <thead>
                         <tr>
-                            <th>Date Sent</th>
-                            <th>Number of Messages</th>
+                            <th style="text-align: right">Date Sent</th>
+                            <th style="text-align: right">Number of Messages</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                        @foreach($array_data['responseObject'] as $key=>$value)
-                            <tr>
-                                <td>{{date('d-m-Y',strtotime($value['date']))}}</td>
-                                <td>{{$value['total']}}</td>
-                            </tr>
-                        @endforeach
+
 
                         </tbody>
                     </table>
@@ -143,5 +138,35 @@
     </div>
 </div>
 
+
+@endsection
+@section('js')
+    <script type="text/javascript" src="{{asset('datatables/datatables.min.js')}}" ></script>
+
+    <script>
+        $('#summaryData').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: '{!! route('sms.summary.data')!!}',
+            dom: 'Bfrtip',
+            // buttons: [
+            //     'colvis','copy', 'excel', 'print',
+            //
+            //     {
+            //         extend: 'csvHtml5',
+            //         text: 'CSV',
+            //         exportOptions: {
+            //             columns: [0,1, 2,3,4, 5,6,7],
+            //         },
+            //         footer: true,
+            //     },
+            //     'pageLength'
+            // ],
+            columns: [
+                {data: 'date', name: 'date'},
+                {data: 'total', name: 'total'},
+            ]
+        });
+    </script>
 
 @endsection

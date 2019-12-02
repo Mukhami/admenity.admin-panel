@@ -94,7 +94,7 @@
                 <div class="card-footer bg-c-pink">
                     <div class="row align-items-center">
                         <div class="col-9">
-                            <p class="text-white m-b-0"><a href="{{route('user.lists')}}">View</a></p>
+                            <p class="text-white m-b-0"><a href="{{route('all.users')}}">View</a></p>
                         </div>
                         <div class="col-3 text-right">
                             <i class="feather icon-trending-up text-white f-16"></i>
