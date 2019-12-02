@@ -1,5 +1,8 @@
 @extends('Layouts.master')
 @section('title', 'Sent SMS Logs')
+@section('css')
+    <link href="{{ asset('datatables/datatables.css') }}" rel="stylesheet">
+@endsection
 @section('content')
 
 
@@ -120,9 +123,10 @@
         </div>
         <div class="card-block">
             <div class="table-responsive">
-                <table class="table table-hover  table-borderless">
+                <table class="table table-hover  table-borderless" id="logsData">
                     <thead>
                     <tr>
+                        <th>#</th>
                         <th>Phone Number</th>
                         <th>Date & Time Sent</th>
                         <th>Message</th>
@@ -130,15 +134,15 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                     @foreach($array_data['responseObject'] as $key=>$value)
-                         <tr>
-                             <td>{{$value['mobile']}}</td>
-                             <td>{{date('d-m-Y , h:i:sa',strtotime($value['created_date']))}}</td>
-                             <td>{{str_limit($value['message'], 80)}}</td>
-                             <td>{{$value['status']}}</td>
-                         </tr>
-                         @endforeach
+{{--                    <tr>--}}
+{{--                     @foreach($array_data['responseObject'] as $key=>$value)--}}
+{{--                         <tr>--}}
+{{--                             <td>{{$value['mobile']}}</td>--}}
+{{--                             <td>{{date('d-m-Y , h:i:sa',strtotime($value['created_date']))}}</td>--}}
+{{--                             <td>{{str_limit($value['message'], 80)}}</td>--}}
+{{--                             <td>{{$value['status']}}</td>--}}
+{{--                         </tr>--}}
+{{--                         @endforeach--}}
 
                     </tbody>
                 </table>
@@ -146,5 +150,38 @@
         </div>
     </div>
 </div>
+
+@endsection
+@section('js')
+    <script type="text/javascript" src="{{asset('datatables/datatables.min.js')}}" ></script>
+
+    <script>
+        $('#logsData').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: '{!! route('logs.data')!!}',
+            dom: 'Bfrtip',
+            // buttons: [
+            //     'colvis','copy', 'excel', 'print',
+            //
+            //     {
+            //         extend: 'csvHtml5',
+            //         text: 'CSV',
+            //         exportOptions: {
+            //             columns: [0,1, 2,3,4, 5,6,7],
+            //         },
+            //         footer: true,
+            //     },
+            //     'pageLength'
+            // ],
+            columns: [
+                {data: 'id', name: 'id'},
+                {data: 'phone_number', name: 'phone_number'},
+                {data: 'date_registered', name: 'date_registered'},
+                {data: 'message', name: 'message'},
+                {data: 'status', name: 'status'},
+            ]
+        });
+    </script>
 
 @endsection
