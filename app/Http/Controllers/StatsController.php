@@ -27,7 +27,7 @@ class StatsController extends Controller
         $response = $http->request('POST', 'http://139.162.161.150:8585/authenticate',[
             'form_params'=>[
                 'grant_type' => 'refresh_token',
-                'refresh_token' => '0fb0058b-ac2d-4d41-a134-20bbf115280c'
+                'refresh_token' => '4d225cda-2a4d-45d6-bb3a-28566bb6eee9'
             ]
         ]);
         $data = $response->getBody();
@@ -108,7 +108,7 @@ class StatsController extends Controller
         $response = $client->request('POST', 'http://139.162.161.150:8585/authenticate',[
             'form_params'=>[
                 'grant_type' => 'refresh_token',
-                'refresh_token' => '0fb0058b-ac2d-4d41-a134-20bbf115280c'
+                'refresh_token' => '4d225cda-2a4d-45d6-bb3a-28566bb6eee9'
             ]
         ]);
         $data = $response->getBody();
@@ -152,7 +152,7 @@ class StatsController extends Controller
         $response = $client->request('POST', 'http://139.162.161.150:8585/authenticate',[
             'form_params'=>[
                 'grant_type' => 'refresh_token',
-                'refresh_token' => '0fb0058b-ac2d-4d41-a134-20bbf115280c'
+                'refresh_token' => '4d225cda-2a4d-45d6-bb3a-28566bb6eee9'
             ]
         ]);
         $data = $response->getBody();
@@ -188,7 +188,7 @@ class StatsController extends Controller
         $response = $client->request('POST', 'http://139.162.161.150:8585/authenticate',[
             'form_params'=>[
                 'grant_type' => 'refresh_token',
-                'refresh_token' => '0fb0058b-ac2d-4d41-a134-20bbf115280c'
+                'refresh_token' => '4d225cda-2a4d-45d6-bb3a-28566bb6eee9'
             ]
         ]);
         $data = $response->getBody();
@@ -209,7 +209,7 @@ class StatsController extends Controller
         $response = $client->request('POST', 'http://139.162.161.150:8585/authenticate',[
             'form_params'=>[
                 'grant_type' => 'refresh_token',
-                'refresh_token' => '0fb0058b-ac2d-4d41-a134-20bbf115280c'
+                'refresh_token' => '4d225cda-2a4d-45d6-bb3a-28566bb6eee9'
             ]
         ]);
         $data = $response->getBody();
@@ -246,7 +246,7 @@ class StatsController extends Controller
         $response = $client->request('POST', 'http://139.162.161.150:8585/authenticate',[
             'form_params'=>[
                 'grant_type' => 'refresh_token',
-                'refresh_token' => '0fb0058b-ac2d-4d41-a134-20bbf115280c'
+                'refresh_token' => '4d225cda-2a4d-45d6-bb3a-28566bb6eee9'
             ]
         ]);
         $data = $response->getBody();
@@ -273,7 +273,7 @@ class StatsController extends Controller
         $response = $client->request('POST', 'http://139.162.161.150:8585/authenticate',[
             'form_params'=>[
                 'grant_type' => 'refresh_token',
-                'refresh_token' => '0fb0058b-ac2d-4d41-a134-20bbf115280c'
+                'refresh_token' => '4d225cda-2a4d-45d6-bb3a-28566bb6eee9'
             ]
         ]);
         $data = $response->getBody();
