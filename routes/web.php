@@ -17,6 +17,7 @@
 
 Route::get('/fact_sheet_details', 'ProfileController@index')->name('index');//profile and listings view
 
+Route::get('/refresh', 'StatsController@generateRefreshToken');
 Route::get('/', 'StatsController@stats_index')->name('stats');//admin home
 Route::get('/refresh_access_token', 'StatsController@refreshAccessToken')->name('refresh');
 Route::get('/users_list', 'StatsController@getUsersList')->name('user.lists');
@@ -27,6 +28,7 @@ Route::get('/all_users_data', 'StatsController@getAllUsers')->name('all.users');
 Route::get('/users-datatable', 'StatsController@usersData')->name('users.data');
 Route::get('/sms-logs-datatable', 'StatsController@smsLogsData')->name('logs.data');
 Route::get('/sms-summary-datatable', 'StatsController@smsSummaryData')->name('sms.summary.data');
+Route::get('/user-feedback-datatable', 'StatsController@userResponseData')->name('user.feedback.data');
 //Route::get('/app-users', 'StatsController@usersData')->name('all.');
 
 //listed securities routes

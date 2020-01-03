@@ -13,6 +13,29 @@ class StatsController extends Controller
     {
         $this->middleware('auth');
     }
+    public function generateRefreshToken(){
+        $http = new Client([
+            'auth' => [
+                'app_client',
+                'secret'
+            ],
+            'headers' => [
+                'Content-Type' => 'application/x-www-form-urlencoded']
+        ]);
+        $response = $http->request('POST', 'http://139.162.161.150:8585/authenticate',[
+            'form_params'=>[
+                'username'=> 'mukhamikaranja@gmail.com',
+                'password'=>'secret',
+                'grant_type' => 'password',
+                'client_id' => 'app_client'
+            ]
+        ]);
+        $data = $response->getBody();
+        $array_data = json_decode($data, true);
+        $refresh_token = $array_data['refresh_token'];
+        return $refresh_token;
+    }
+
     public function stats_index()
     {
         //gets access token for requests
@@ -27,7 +50,7 @@ class StatsController extends Controller
         $response = $http->request('POST', 'http://139.162.161.150:8585/authenticate',[
             'form_params'=>[
                 'grant_type' => 'refresh_token',
-                'refresh_token' => '4d225cda-2a4d-45d6-bb3a-28566bb6eee9'
+                'refresh_token' => self::generateRefreshToken()
             ]
         ]);
         $data = $response->getBody();
@@ -76,7 +99,6 @@ class StatsController extends Controller
         return view('NSE-Data.nse_stats', compact('user_data_array','last10', 'sms_logs_array', 'last_seven', 'last_five', 'feedback_array', 'allUserData'));
     }
 
-
     public function usersData(){
         $client_allUsers = new Client(['headers' => ['content-type' => 'application/json', 'Accept' => 'application/json'],]);
         $response = $client_allUsers->request('GET', 'http://139.162.161.150/nigg/index.php/api/getAllUsers');
@@ -108,7 +130,7 @@ class StatsController extends Controller
         $response = $client->request('POST', 'http://139.162.161.150:8585/authenticate',[
             'form_params'=>[
                 'grant_type' => 'refresh_token',
-                'refresh_token' => '4d225cda-2a4d-45d6-bb3a-28566bb6eee9'
+                'refresh_token' => self::generateRefreshToken()
             ]
         ]);
         $data = $response->getBody();
@@ -152,7 +174,7 @@ class StatsController extends Controller
         $response = $client->request('POST', 'http://139.162.161.150:8585/authenticate',[
             'form_params'=>[
                 'grant_type' => 'refresh_token',
-                'refresh_token' => '4d225cda-2a4d-45d6-bb3a-28566bb6eee9'
+                'refresh_token' => self::generateRefreshToken()
             ]
         ]);
         $data = $response->getBody();
@@ -176,26 +198,53 @@ class StatsController extends Controller
 
     }
 
-    public function refreshAccessToken(){
-        $client = new Client([
-            'auth' => [
-                'app_client',
-                'secret'
-            ],
-            'headers' => [
-                'Content-Type' => 'application/x-www-form-urlencoded']
-            ]);
-        $response = $client->request('POST', 'http://139.162.161.150:8585/authenticate',[
-            'form_params'=>[
-                'grant_type' => 'refresh_token',
-                'refresh_token' => '4d225cda-2a4d-45d6-bb3a-28566bb6eee9'
-            ]
-        ]);
-        $data = $response->getBody();
-        $data = json_decode($data, true);
-        $token = $data['access_token'];
+    public function userResponseData(){
+        $client_feedback = new Client(['headers' => ['content-type' => 'application/json', 'Accept' => 'application/json'],]);
+        $response_feedback = $client_feedback->request('GET', 'http://139.162.161.150/nigg/index.php/api/getUserFeedback');
+        $user_feedback = $response_feedback->getBody();
+        $feedback_array = json_decode($user_feedback, true);
+        $type = $feedback_array['data'];
 
+        return Datatables::of($type)
+            ->editColumn('email', function ($type) {
+                return  $type['email'];
+            })
+            ->editColumn('rating', function ($type) {
+                return  $type['rating'];
+            })
+            ->editColumn('feedback', function ($type) {
+                if ($type['feedback']==""){
+                    return  "--";
+                }else{
+                    return $type['feedback'];
+                }
+            })
+            ->editColumn('date', function ($type) {
+                return date('d-m-Y, h:i:sa',strtotime($type['created_date']));
+            })
+            ->make(true);
     }
+
+//    public function refreshAccessToken(){
+//        $client = new Client([
+//            'auth' => [
+//                'app_client',
+//                'secret'
+//            ],
+//            'headers' => [
+//                'Content-Type' => 'application/x-www-form-urlencoded']
+//            ]);
+//        $response = $client->request('POST', 'http://139.162.161.150:8585/authenticate',[
+//            'form_params'=>[
+//                'grant_type' => 'refresh_token',
+//                'refresh_token' => self::generateRefreshToken()
+//            ]
+//        ]);
+//        $data = $response->getBody();
+//        $data = json_decode($data, true);
+//        $token = $data['access_token'];
+//
+//    }
 
     public function getUsersList(){
         $client = new Client([
@@ -209,7 +258,7 @@ class StatsController extends Controller
         $response = $client->request('POST', 'http://139.162.161.150:8585/authenticate',[
             'form_params'=>[
                 'grant_type' => 'refresh_token',
-                'refresh_token' => '4d225cda-2a4d-45d6-bb3a-28566bb6eee9'
+                'refresh_token' => self::generateRefreshToken()
             ]
         ]);
         $data = $response->getBody();
@@ -246,7 +295,7 @@ class StatsController extends Controller
         $response = $client->request('POST', 'http://139.162.161.150:8585/authenticate',[
             'form_params'=>[
                 'grant_type' => 'refresh_token',
-                'refresh_token' => '4d225cda-2a4d-45d6-bb3a-28566bb6eee9'
+                'refresh_token' => self::generateRefreshToken()
             ]
         ]);
         $data = $response->getBody();
@@ -273,7 +322,7 @@ class StatsController extends Controller
         $response = $client->request('POST', 'http://139.162.161.150:8585/authenticate',[
             'form_params'=>[
                 'grant_type' => 'refresh_token',
-                'refresh_token' => '4d225cda-2a4d-45d6-bb3a-28566bb6eee9'
+                'refresh_token' => self::generateRefreshToken()
             ]
         ]);
         $data = $response->getBody();

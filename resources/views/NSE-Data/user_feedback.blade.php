@@ -1,5 +1,8 @@
 @extends('Layouts.master')
 @section('title', 'User Feedback')
+@section('css')
+    <link href="{{ asset('datatables/datatables.css') }}" rel="stylesheet">
+@endsection
 @section('content')
 
 
@@ -118,7 +121,7 @@
             </div>
             <div class="card-block">
                 <div class="table-responsive">
-                    <table class="table table-hover  table-borderless">
+                    <table class="table table-hover  table-borderless" id="userFeedback">
                         <thead>
                         <tr>
                             <th>Email Address</th>
@@ -128,25 +131,43 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                        @foreach($feedback_array['data'] as $key=>$value)
-                            <tr>
-                                <td>{{$value['email']}}</td>
-                                <td>{{$value['rating']}}</td>
-                                @if($value['feedback']== "")
-                                    <td class="text-muted">No comment</td>
-                                @else
-                                    <td>{{str_limit($value['feedback'], 55)}}</td>
-                                @endif
-                                <td>{{date('d-m-Y , h:i:sa',strtotime($value['created_date']))}}</td>
-                                {{--                                                        <td>{{$value['status']}}</td>--}}
-                            </tr>
-                        @endforeach
+
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
+
+@endsection
+@section('js')
+    <script type="text/javascript" src="{{asset('datatables/datatables.min.js')}}" ></script>
+
+    <script>
+        $('#userFeedback').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: '{!! route('user.feedback.data')!!}',
+            dom: 'Bfrtip',
+            buttons: [
+                'colvis','copy', 'excel', 'print',
+
+                {
+                    extend: 'csvHtml5',
+                    text: 'CSV',
+                    exportOptions: {
+                        columns: [0,1, 2,3,4, 5,6,7],
+                    },
+                    footer: true,
+                },
+                'pageLength'
+            ],
+            columns: [
+                {data: 'email', name: 'email'},
+                {data: 'rating', name: 'rating'},
+                {data: 'feedback', name: 'feedback'},
+                {data: 'date', name: 'date'},            ]
+        });
+    </script>
 
 @endsection
