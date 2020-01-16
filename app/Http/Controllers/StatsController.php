@@ -100,8 +100,12 @@ class StatsController extends Controller
     }
 
     public function usersData(){
-        $client_allUsers = new Client(['headers' => ['content-type' => 'application/json', 'Accept' => 'application/json'],]);
-        $response = $client_allUsers->request('GET', 'http://139.162.161.150/nigg/index.php/api/getAllUsers');
+        $client_allUsers = new Client(
+            ['headers' => ['content-type' => 'application/json', 'Accept' => 'application/json'],]
+        );
+        $response = $client_allUsers->request(
+            'GET', 'http://139.162.161.150/nigg/index.php/api/getAllUsers'
+        );
         $allData = $response->getBody();
         $allUserData =  json_decode($allData, true);
 
@@ -112,8 +116,9 @@ class StatsController extends Controller
                 return $type['email'];
             })
             ->editColumn('date_registered', function ($type) {
-                return Carbon::parse(strtotime($type['created_on']))->format('d-m-Y h:i');
-//                return date('d-m-Y , h:i:sa', strtotime($type['created_on']));
+                // return Carbon::parse(strtotime($type['created_on']))->format('d-m-Y h:i');
+                // return date('d-m-Y , h:i:sa', strtotime($type['created_on']));
+                return $type['created_on'];
             })
             ->make(true);
     }
