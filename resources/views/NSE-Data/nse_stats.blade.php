@@ -130,7 +130,7 @@
                                                 <thead>
                                                 <tr>
                                                     <th>Registered E-mail Address</th>
-                                                    <th>Registration Date</th>
+                                                    <th>Created On</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -251,8 +251,8 @@
                         </div>
                     </div>
                 </div>
-                <div id="styleSelector">
-                </div>
+                {{-- <div id="styleSelector">
+                </div> --}}
             </div>
         @endsection
 @section('js')
